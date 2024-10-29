@@ -2,10 +2,15 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\HomeController; // Import the HomeController if not already present
 
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/about', [HomeController::class, 'about'])->name('about');
+Route::get('/classes', [HomeController::class, 'classes'])->name('classes');
+Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -17,4 +22,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
