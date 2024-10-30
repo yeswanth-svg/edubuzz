@@ -108,7 +108,6 @@
     </div>
 
 </div>
-
 <!-- Worksheets End -->
 <br>
 <br>
@@ -122,12 +121,13 @@
             <div class="facility-item">
                 <div class="facility-icon bg-primary">
                     <span class="bg-primary"></span>
-                    <i class="fa fa-bus-alt fa-3x text-primary"></i>
+                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
+                        style="width: 60px; height: auto;">
                     <span class="bg-primary"></span>
                 </div>
                 <div class="facility-text bg-primary">
                     <h3 class="text-primary mb-3">Grade Pre-K</h3>
-                    <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+
                 </div>
             </div>
         </div>
@@ -135,12 +135,13 @@
             <div class="facility-item">
                 <div class="facility-icon bg-success">
                     <span class="bg-success"></span>
-                    <i class="fa fa-futbol fa-3x text-success"></i>
+                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
+                        style="width: 60px; height: auto;">
                     <span class="bg-success"></span>
                 </div>
                 <div class="facility-text bg-success">
                     <h3 class="text-success mb-3">Grade-K</h3>
-                    <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+
                 </div>
             </div>
         </div>
@@ -148,12 +149,13 @@
             <div class="facility-item">
                 <div class="facility-icon bg-warning">
                     <span class="bg-warning"></span>
-                    <i class="fa fa-home fa-3x text-warning"></i>
+                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
+                        style="width: 60px; height: auto;">
                     <span class="bg-warning"></span>
                 </div>
                 <div class="facility-text bg-warning">
                     <h3 class="text-warning mb-3">Grade 1</h3>
-                    <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+
                 </div>
             </div>
         </div>
@@ -161,18 +163,18 @@
             <div class="facility-item">
                 <div class="facility-icon bg-info">
                     <span class="bg-info"></span>
-                    <i class="fa fa-chalkboard-teacher fa-3x text-info"></i>
+                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
+                        style="width: 60px; height: auto;">
                     <span class="bg-info"></span>
                 </div>
                 <div class="facility-text bg-info">
                     <h3 class="text-info mb-3">Grade 2</h3>
-                    <p class="mb-0">Eirmod sed ipsum dolor sit rebum magna erat lorem kasd vero ipsum sit</p>
+
                 </div>
             </div>
         </div>
     </div>
 </div>
-
 <!-- Grades End -->
 
 
@@ -315,13 +317,32 @@
         <div class="d-flex justify-content-center mt-4">
             <a href="https://www.youtube.com/user/edubuzzkids" class="btn btn-primary px-4 py-2" target="_blank"
                 rel="noopener noreferrer">
-                View More Videos
+                More Videos
             </a>
         </div>
 
     </div>
 </div>
 <!-- videos End -->
+
+@push('scripts')
+    <script>
+        $(document).ready(function () {
+            $(".videos").owlCarousel({
+                items: 3,
+                margin: 20,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 3000,
+                responsive: {
+                    0: { items: 1 },
+                    600: { items: 2 },
+                    1000: { items: 3 }
+                }
+            });
+        });
+    </script>
+@endpush
 
 
 @endsection

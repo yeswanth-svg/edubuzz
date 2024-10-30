@@ -31,6 +31,18 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('build/css/style.css')}}" rel="stylesheet" />
+
+    <!-- Owl Carousel CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
+
+    <!-- jQuery (if not already included) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <!-- Owl Carousel JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
 </head>
 
 <body>
@@ -95,7 +107,8 @@
                     <div class="d-flex pt-2">
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-youtube"></i></a>
+                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/user/edubuzzkids"><i
+                                class="fab fa-youtube"></i></a>
                         <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
@@ -103,82 +116,57 @@
                     <h3 class="text-white mb-4">Quick Links</h3>
                     <a class="btn btn-link text-white mb-4" href="{{ url('/about') }}">About Us</a>
                     <a class="btn btn-link text-white mb-4" href="{{ url('/contact') }}">Contact Us</a>
-                    <a class="btn btn-link text-white mb-4" href="{{ url('/policy') }}">Privacy Policy</a>
                     <a class="btn btn-link text-white mb-4" href="">Terms & Condition</a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <h3 class="text-white mb-4">Video Gallery</h3>
                     <div class="row g-2 pt-2">
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/LH76IS_Qoi4" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/LH76IS_Qoi4/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=LH76IS_Qoi4', '_blank')">
                             </div>
                         </div>
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/zkqxpCXcQJI" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/zkqxpCXcQJI/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=zkqxpCXcQJI', '_blank')">
                             </div>
                         </div>
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/udxSNNEEeZw" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/udxSNNEEeZw/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=udxSNNEEeZw', '_blank')">
                             </div>
                         </div>
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/1rWAKJCH4ic4" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/1rWAKJCH4ic/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=1rWAKJCH4ic', '_blank')">
                             </div>
                         </div>
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/AOhLhy3rIx0" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/AOhLhy3rIx0/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=AOhLhy3rIx0', '_blank')">
                             </div>
                         </div>
                         <div class="col-4">
-                            <div
-                                style="position: relative; width: 100%; padding-bottom: 100%; overflow: hidden; border-radius: 50%;">
-                                <iframe
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border-radius: 50%;"
-                                    src="https://www.youtube.com/embed/o2Z7FkJFPkc" title="YouTube video player"
-                                    frameborder="0"
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                                    allowfullscreen>
-                                </iframe>
+                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
+                                <img src="https://img.youtube.com/vi/o2Z7FkJFPkc/0.jpg" alt="Video Thumbnail"
+                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
+                                    style="object-fit: cover;"
+                                    onclick="window.open('https://www.youtube.com/watch?v=o2Z7FkJFPkc', '_blank')">
                             </div>
                         </div>
                     </div>
@@ -186,11 +174,8 @@
 
 
                 <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Newsletter</h3>
-                    <p class="text-white mb-4">
-                        Dolor amet sit justo amet elitr clita ipsum
-                        elitr est.
-                    </p>
+                    <h3 class="text-white mb-4">Support</h3>
+                    <a class="btn btn-link text-white mb-4" href="{{ url('/policy') }}">Privacy Policy</a>
                     <div class="position-relative mx-auto" style="max-width: 400px">
                         <!-- <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
                             placeholder="Your email" />
@@ -215,9 +200,8 @@
                     <div class="col-md-6 text-center text-md-end">
                         <div class="footer-menu">
                             <a href="{{ url('/') }}">Home</a>
-                            <a href="">Cookies</a>
-                            <a href="">Help</a>
-                            <a href="">FQAs</a>
+                            <a href="{{ url('/about') }}">About us</a>
+                            <a href="{{ url('/contact') }}">Contact us</a>
                         </div>
                     </div>
                 </div>
