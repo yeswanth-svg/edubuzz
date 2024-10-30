@@ -24,4 +24,8 @@ class HomeController extends Controller
     {
         return view('policy'); // Make sure this matches the name of your view file
     }
+    public function worksheets()
+    {
+        return view('worksheets'); // Make sure this matches the name of your view file
+    }
 }
