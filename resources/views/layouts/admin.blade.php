@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
     <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
 
 
 </head>
@@ -65,34 +66,6 @@
 
     </div>
 
-    <script>
-        // Chart.js Subjects Overview Chart
-        const ctx = document.getElementById('subjectsChart').getContext('2d');
-        new Chart(ctx, {
-            type: 'bar',
-            data: {
-                labels: ['Math', 'Science', 'History', 'Geography', 'Language Arts', 'Physical Ed', 'Art', 'Computer Science'],
-                datasets: [{
-                    label: 'Number of Topics',
-                    data: [5, 8, 4, 6, 7, 2, 3, 9],
-                    backgroundColor: 'rgba(59, 130, 246, 0.6)',
-                    borderColor: 'rgba(59, 130, 246, 1)',
-                    borderWidth: 1
-                }]
-            },
-            options: {
-                responsive: true,
-                plugins: {
-                    legend: { display: true }
-                },
-                scales: {
-                    y: {
-                        beginAtZero: true
-                    }
-                }
-            }
-        });
-    </script>
 
 </body>
 
