@@ -69,12 +69,22 @@ class AdminAuthController extends Controller
 
     public function dashboard()
     {
-        $total_grades = Grade::all()->count();
-        $total_subjects = Subject::all()->count();
-        $total_topics = Topic::all()->count();
-        $total_subtopics = Subtopic::all()->count();
-        $total_worksheets = Worksheet::all()->count();
-        return view('admin.dashboard', compact('total_grades', 'total_subjects', 'total_topics', 'total_subtopics', 'total_worksheets'));
+        $total_grades = Grade::count();
+        $total_subjects = Subject::count();
+        $total_topics = Topic::count();
+        $total_subtopics = Subtopic::count();
+        $total_worksheets = Worksheet::count();
+
+        // Get the number of topics per subject
+        $subjectsOverview = Subject::withCount('topics')->get()->map(function ($subject) {
+            return [
+                'name' => $subject->name,
+                'topic_count' => $subject->topics_count
+            ];
+        });
+
+        return view('admin.dashboard', compact('total_grades', 'total_subjects', 'total_topics', 'total_subtopics', 'total_worksheets', 'subjectsOverview'));
     }
+
 
 }

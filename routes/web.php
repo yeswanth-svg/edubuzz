@@ -30,7 +30,7 @@ Route::middleware('auth')->group(function () {
 // Admin Authentication Routes
 Route::controller(AdminAuthController::class)->group(function () {
     Route::get('/admin/login', 'showLoginForm')->name('admin.login');
-    Route::post('/admin/login', 'authenticate');
+    Route::post('/admin/login', 'authenticate');    
     Route::get('/admin/signup', 'showSignupForm')->name('admin.signup');
     Route::post('/admin/signup', 'store');
     Route::post('/admin/logout', 'logout')->name('admin.logout');
