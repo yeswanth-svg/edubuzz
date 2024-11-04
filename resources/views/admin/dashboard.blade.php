@@ -81,18 +81,19 @@
                 <canvas id="subjectsChart"></canvas>
             </div>
 
-            <!-- Bar Chart: Topics with Subtopics -->
-            <div class="chart-container bg-white p-6 rounded-lg shadow">
-                <h3 class="text-lg font-semibold mb-4">Topics Overview</h3>
-                <canvas id="topicsChart"
-                    style="height:400px;position:relative;top:30%;"></canvas>
-            </div>
-
             <!-- Radar Chart: Subtopics with Worksheets -->
             <div class="chart-container bg-white p-6 rounded-lg shadow">
                 <h3 class="text-lg font-semibold mb-4">Subtopics Overview</h3>
                 <canvas id="subtopicsChart"></canvas>
             </div>
+
+            <!-- Bar Chart: Topics with Subtopics -->
+            <div class="chart-container bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-4">Topics Overview</h3>
+                <canvas id="topicsChart" style="height:400px;position:relative;top:30%;"></canvas>
+            </div>
+
+
 
         </div>
     </main>
