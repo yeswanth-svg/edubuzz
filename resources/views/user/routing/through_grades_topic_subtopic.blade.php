@@ -333,7 +333,7 @@
             <div class="accordion-container">
                 <div class="accordion" id="accordionExample">
                     @php
-                        $currentTopicId = $topic_id;
+                        $currentTopicId = $topic->id;
                     @endphp
                     @foreach ($uniqueTopics->groupBy('subject.name') as $subjectName => $topicGroup)
                         <div class="accordion-item">

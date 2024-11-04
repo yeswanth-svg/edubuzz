@@ -17,10 +17,10 @@ Route::get('/classes', [HomeController::class, 'classes'])->name('classes');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
 Route::get('/worksheets', [HomeController::class, 'worksheets'])->name('worksheets');
-Route::get('/worksheets_groups', [WorksheetController::class, 'grades_pages'])->name('worksheets_grades');
+Route::get('/worksheets_grades', [WorksheetController::class, 'grades_pages'])->name('worksheets_grades');
 Route::get('/worksheets_subjects', [WorksheetController::class, 'subjects_pages'])->name('worksheets_subjects');
 Route::get('/worksheets_topics', [WorksheetController::class, 'topics_pages'])->name('worksheets_topics');
-
+Route::get('/search', [WorksheetController::class, 'search'])->name('search');
 
 
 //ROUTING ROUTES Through Grades

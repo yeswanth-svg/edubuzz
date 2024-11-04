@@ -3,6 +3,42 @@
 @section('title', 'Edubuzz - Kids')
 
 @section('content')
+<style>
+    .button-74 {
+        background-color: #fbeee0;
+        border: 2px solid #422800;
+        border-radius: 30px;
+        box-shadow: #422800 4px 4px 0 0;
+        color: #422800;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0 18px;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-74:hover {
+        background-color: #fff;
+    }
+
+    .button-74:active {
+        box-shadow: #422800 2px 2px 0 0;
+        transform: translate(2px, 2px);
+    }
+
+    @media (min-width: 768px) {
+        .button-74 {
+            min-width: 120px;
+            padding: 0 25px;
+        }
+    }
+</style>
 
 
 <!-- Carousel Start -->
@@ -17,10 +53,11 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten School For
                                 Your Child</h1>
-                            <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
-                                Worksheets</a>
-                            <a href=""
-                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Grades</a>
+                            <a href="/worksheets_grades"
+                                class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
+                                Grades</a>
+                            <a href="/worksheets_subjects"
+                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Subjects</a>
                         </div>
                     </div>
                 </div>
@@ -35,10 +72,10 @@
                         <div class="col-10 col-lg-8">
                             <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your
                                 Child</h1>
-                            <a href=""
+                            <a href="/worksheets"
                                 class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Worksheets</a>
-                            <a href=""
-                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Grades</a>
+                            <a href="https://www.youtube.com/user/edubuzzkids"
+                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Videos</a>
                         </div>
                     </div>
                 </div>
@@ -55,7 +92,7 @@
         <h1 class="mb-3">Worksheets</h1>
     </div>
     <div class="row g-4">
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-3 col-sm-6">
             <a href="{{route('through_worksheets_by_subjects', 'math')}}">
                 <div class="facility-item">
                     <div class="facility-icon bg-primary">
@@ -71,7 +108,7 @@
                 </div>
             </a>
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-3 col-sm-6">
             <a href="{{route('through_worksheets_by_subjects', 'english')}}">
                 <div class="facility-item">
                     <div class="facility-icon bg-success">
@@ -86,23 +123,24 @@
                 </div>
             </a>
         </div>
-        <div class="col-lg-4 col-sm-6">
+        <div class="col-lg-3 col-sm-6">
             <a href="{{route('through_worksheets_by_subjects', 'science')}}">
                 <div class="facility-item">
-                    <div class="facility-icon bg-warning">
-                        <span class="bg-warning"></span>
+                    <div class="facility-icon bg-danger">
+                        <span class="bg-danger"></span>
                         <img src="{{asset('build/img/science.png')}}" alt="Science Icon" class="img-fluid"
                             style="width: 60px; height: auto;">
-                        <span class="bg-warning"></span>
+                        <span class="bg-danger"></span>
                     </div>
-                    <div class="facility-text bg-warning">
-                        <h3 class="text-warning mb-3">SCIENCE WORKSHEETS</h3>
+                    <div class="facility-text bg-danger">
+                        <h3 class="text-danger mb-3">SCIENCE WORKSHEETS</h3>
                     </div>
                 </div>
             </a>
         </div>
-        <!-- <div class="col-lg-3 col-sm-6">
-            <a href="{{ route('through_grades', ['grade_id' => 13]) }}">
+
+        <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('through_grades_topic', ['topic_id' => 63]) }}">
                 <div class="facility-item">
                     <div class="facility-icon bg-info">
                         <span class="bg-info"></span>
@@ -115,7 +153,13 @@
                     </div>
                 </div>
             </a>
-        </div> -->
+        </div>
+
+
+        <div class="d-flex justify-content-center mt-4">
+            <a href="{{route('worksheets_subjects')}}"><button class="button-74" role="button">More
+                    Subjects</button></a>
+        </div>
     </div>
 
 </div>
@@ -131,14 +175,14 @@
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
             <a href="{{ route('through_grades', ['grade_id' => 10]) }}">
                 <div class="facility-item">
-                    <div class="facility-icon bg-primary">
-                        <span class="bg-primary"></span>
+                    <div class="facility-icon bg-danger">
+                        <span class="bg-danger"></span>
                         <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
                             style="width: 60px; height: auto;">
-                        <span class="bg-primary"></span>
+                        <span class="bg-danger"></span>
                     </div>
-                    <div class="facility-text bg-primary">
-                        <h3 class="text-primary mb-3">Grade Pre-K</h3>
+                    <div class="facility-text bg-danger">
+                        <h3 class="text-danger mb-3">Grade Pre-K</h3>
 
                     </div>
                 </div>
@@ -147,14 +191,14 @@
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
             <a href="{{ route('through_grades', ['grade_id' => 11]) }}">
                 <div class="facility-item">
-                    <div class="facility-icon bg-success">
-                        <span class="bg-success"></span>
+                    <div class="facility-icon bg-primary">
+                        <span class="bg-primary"></span>
                         <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
                             style="width: 60px; height: auto;">
-                        <span class="bg-success"></span>
+                        <span class="bg-primary"></span>
                     </div>
-                    <div class="facility-text bg-success">
-                        <h3 class="text-success mb-3">Grade-K</h3>
+                    <div class="facility-text bg-primary">
+                        <h3 class="text-primary mb-3">Grade-K</h3>
 
                     </div>
                 </div>
@@ -163,14 +207,14 @@
         <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
             <a href="{{ route('through_grades', ['grade_id' => 12]) }}">
                 <div class="facility-item">
-                    <div class="facility-icon bg-warning">
-                        <span class="bg-warning"></span>
+                    <div class="facility-icon bg-success">
+                        <span class="bg-success"></span>
                         <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
                             style="width: 60px; height: auto;">
-                        <span class="bg-warning"></span>
+                        <span class="bg-success"></span>
                     </div>
-                    <div class="facility-text bg-warning">
-                        <h3 class="text-warning mb-3">Grade 1</h3>
+                    <div class="facility-text bg-success">
+                        <h3 class="text-success mb-3">Grade 1</h3>
 
                     </div>
                 </div>
@@ -192,6 +236,9 @@
                 </div>
             </a>
         </div>
+    </div>
+    <div class="d-flex justify-content-center mt-4">
+        <a href="{{ route('worksheets_grades') }}"><button class="button-74" role="button">More Grades</button></a>
     </div>
 </div>
 <!-- Grades End -->

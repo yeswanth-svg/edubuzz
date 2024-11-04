@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Grade;
 use App\Models\Subject;
 use App\Models\Topic;
+use App\Models\Worksheet;
 use Illuminate\Http\Request;
 
 class WorksheetController extends Controller
@@ -32,4 +33,17 @@ class WorksheetController extends Controller
         $uniqueTopics = $topics->unique('name')->values();
         return view('user.worksheets_topics', compact('uniqueTopics'));
     }
+
+    public function search(Request $request)
+    {
+        $query = $request->input('query');
+
+        // Search logic, you can customize this according to your database structure
+        $results = Worksheet::where('name', 'LIKE', "%$query%")
+            ->orWhere('description', 'LIKE', "%$query%")
+            ->get();
+
+        return view('user.search_results', compact('results', 'query'));
+    }
+
 }

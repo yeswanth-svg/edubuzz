@@ -35,6 +35,54 @@
     <!-- Owl Carousel JS -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
+    <style type="text/css">
+        #search-form {
+            position: relative;
+            top: 0;
+            left: 21%;
+            /* Adjust this value based on your design needs */
+        }
+
+        @media (max-width: 1200px) {
+            #search-form {
+                left: 15%;
+                /* Adjust for medium screens */
+            }
+        }
+
+        @media (max-width: 992px) {
+            #search-form {
+                left: 10%;
+                /* Adjust for smaller screens */
+            }
+        }
+
+        @media (max-width: 768px) {
+            #search-form {
+                left: 5%;
+                /* Centered or close to the edge for tablets */
+            }
+        }
+
+        @media (max-width: 576px) {
+            #search-form {
+                left: 0;
+                /* Full width for mobile screens */
+                width: 100%;
+            }
+
+            #search-form .form-control {
+                width: calc(100% - 50px);
+                /* Adjust to fit the screen while considering the button */
+            }
+
+            #search-form .btn {
+                width: 50px;
+                /* Keep button size consistent */
+            }
+        }
+    </style>
+
 </head>
 
 <body>
@@ -48,36 +96,34 @@
                     style="width: 50px; height: 50px;">
                 EduBuzzKids
             </h1>
-
-
         </a>
         <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
+            <form action="{{ route('search') }}" method="GET" class="d-flex me-lg-5" id="search-form">
+                <input class="form-control me-2" type="search" name="query" placeholder="Search..." aria-label="Search"
+                    style="border-radius: 30px; padding: 10px 20px;">
+                <button class="btn btn-primary" type="submit" style="border-radius: 30px; padding: 10px 20px;">
+                    <i class="fa fa-search"></i>
+                </button>
+            </form>
             <div class="navbar-nav mx-auto">
                 <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
                     style="font-size:larger">Home</a>
                 <a href="{{ url('/worksheets') }}"
                     class="nav-item nav-link {{ request()->is('worksheets') ? 'active' : '' }}"
-                    style="font-size:larger">worksheets</a>
-                <!-- <a href="{{ url('/about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}"
-                    style="font-size:larger">About Us</a>
-                <a href="{{ url('/contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}"
-                    style="font-size:larger">Contact Us</a> -->
+                    style="font-size:larger">Worksheets</a>
                 <a href="https://www.youtube.com/user/edubuzzkids"
                     class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
                     style="font-size:larger">Videos</a>
                 <a href="https://play.google.com/store/apps/dev?id=5183235697422098559" class="nav-item nav-link"
                     style="font-size:larger">Apps</a>
-
-
-
             </div>
-            <!-- <a href="" class="btn btn-primary rounded-pill px-3 d-none d-lg-block">Join Us<i
-                    class="fa fa-arrow-right ms-3"></i></a> -->
         </div>
     </nav>
+
+
     <!-- Navbar End -->
 
     @yield('content')
