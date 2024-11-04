@@ -2,30 +2,40 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Topic;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+
+    public function index()
+    {
+        return view('user.welcome');
+    }
     public function about()
     {
-        return view('about'); // Make sure this matches the name of your view file
+        return view('user.about'); // Make sure this matches the name of your view file
     }
 
-    public function classes()
-    {
-        return view('classes'); // Make sure this matches the name of your view file
-    }
+
 
     public function contact()
     {
-        return view('contact'); // Make sure this matches the name of your view file
+        return view('user.contact'); // Make sure this matches the name of your view file
     }
     public function policy()
     {
-        return view('policy'); // Make sure this matches the name of your view file
+        return view('user.policy'); // Make sure this matches the name of your view file
     }
     public function worksheets()
     {
-        return view('worksheets'); // Make sure this matches the name of your view file
+        // Fetch topics with their subjects
+        $topics = Topic::with('subject')->get();
+
+        // Deduplicate based on topic name
+        $uniqueTopics = $topics->unique('name')->values();
+
+        return view('user.worksheets', compact('uniqueTopics'));
     }
+
 }

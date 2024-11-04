@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="utf-8" />
-    <title>Kider - Preschool Website Template</title>
+    <title>@yield('title', 'Edubuzz-kids')</title>
     <meta content="width=device-width, initial-scale=1.0" name="viewport" />
     <meta content="" name="keywords" />
     <meta content="" name="description" />
@@ -14,9 +14,7 @@
     <!-- Google Web Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-        href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Inter:wght@600&family=Lobster+Two:wght@700&display=swap"
-        rel="stylesheet" />
+
 
     <!-- Icon Font Stylesheet -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet" />
@@ -31,12 +29,6 @@
 
     <!-- Template Stylesheet -->
     <link href="{{asset('build/css/style.css')}}" rel="stylesheet" />
-
-    <!-- Owl Carousel CSS -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css" />
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" />
 
     <!-- jQuery (if not already included) -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -65,17 +57,20 @@
         <div class="collapse navbar-collapse" id="navbarCollapse">
             <div class="navbar-nav mx-auto">
                 <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
-                    style="font-size:x-large">Home</a>
+                    style="font-size:larger">Home</a>
                 <a href="{{ url('/worksheets') }}"
                     class="nav-item nav-link {{ request()->is('worksheets') ? 'active' : '' }}"
-                    style="font-size:x-large">worksheets</a>
-                <a href="{{ url('/about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}"
-                    style="font-size:x-large">About Us</a>
+                    style="font-size:larger">worksheets</a>
+                <!-- <a href="{{ url('/about') }}" class="nav-item nav-link {{ request()->is('about') ? 'active' : '' }}"
+                    style="font-size:larger">About Us</a>
                 <a href="{{ url('/contact') }}" class="nav-item nav-link {{ request()->is('contact') ? 'active' : '' }}"
-                    style="font-size:x-large">Contact Us</a>
+                    style="font-size:larger">Contact Us</a> -->
                 <a href="https://www.youtube.com/user/edubuzzkids"
                     class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
-                    style="font-size:x-large">Videos</a>
+                    style="font-size:larger">Videos</a>
+                <a href="https://play.google.com/store/apps/dev?id=5183235697422098559" class="nav-item nav-link"
+                    style="font-size:larger">Apps</a>
+
 
 
             </div>

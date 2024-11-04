@@ -21,5 +21,12 @@ class Subtopic extends Model
     {
         return $this->belongsTo(Topic::class);
     }
+
+    public function worksheets()
+    {
+        return $this->hasMany(Worksheet::class);
+    }
+
+
 }
 

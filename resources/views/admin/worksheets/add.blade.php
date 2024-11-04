@@ -40,10 +40,12 @@
         <div class="mb-4">
             <label class="text-base text-dark-bolder font-bold font-semibold mb-2 block">Upload Thumbnail</label>
             <input type="file" name="thumbnail"
-                class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded" />
-            <p class="text-xs text-gray-600 mt-2"><span class="text-red-500 font-bold">*</span>PNG, JPG SVG,
-                WEBP, and GIF are Allowed.</p>
+                class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded"
+                accept="image/png, image/jpeg, image/jpg,  image/webp, image/gif" />
+            <p class="text-xs text-gray-600 mt-2"><span class="text-red-500 font-bold">*</span> PNG, JPG, WEBP, and
+                GIF are allowed.</p>
         </div>
+
 
         <div class="mb-4">
             <label for="worksheets" class="block text-gray-700">Upload Worksheets (PDF format)</label>

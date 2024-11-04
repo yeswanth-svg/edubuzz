@@ -15,16 +15,21 @@ class Subject extends Model
     ];
 
     // Define the relationship with Grade
+    public function topics()
+    {
+        return $this->hasMany(Topic::class);
+    }
+
     public function grade()
     {
         return $this->belongsTo(Grade::class);
     }
 
-    // Define the relationship with Topic
-    public function topics()
-    {
-        return $this->hasMany(Topic::class);
-    }
+   
+
+
+
+
 }
 
 

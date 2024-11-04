@@ -17,15 +17,15 @@ class Topic extends Model
     ];
 
     // Define the relationship with Subject
+    public function subtopics()
+    {
+        return $this->hasMany(Subtopic::class);
+    }
+
     public function subject()
     {
         return $this->belongsTo(Subject::class);
     }
 
-    // Define the relationship with Subtopic
-    public function subtopics()
-    {
-        return $this->hasMany(Subtopic::class);
-    }
 }
 

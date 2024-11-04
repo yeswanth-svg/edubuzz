@@ -3,31 +3,20 @@
 @section('content')
 
 <style>
-    #subjectsChart {
-        width: 100% !important;
-        /* Takes full container width */
-        max-width: 500px;
-        /* Sets a maximum width */
-        height: 500px !important;
-        /* Controls the height */
-        box-sizing: border-box;
-        /* Ensures padding is included */
+    /* Responsive layout for charts */
+    .chart-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(500px, 1fr));
+        gap: 20px;
     }
 
     .chart-container {
-        max-width: 600px;
-        width: 100%;
-        margin: auto;
-        overflow: hidden;
         padding: 20px;
         box-sizing: border-box;
     }
 </style>
 
-<!-- Main Content -->
 <div class="flex flex-col flex-1">
-
-    <!-- Top Navigation -->
     <header class="bg-white shadow py-4 px-6 flex justify-between items-center">
         <h2 class="text-xl font-semibold text-gray-800">Dashboard</h2>
         <button class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
@@ -37,7 +26,6 @@
         </form>
     </header>
 
-    <!-- Dashboard Content -->
     <main class="p-6 bg-gray-100 flex-1 overflow-y-auto">
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6 rounded-lg">
 
@@ -85,76 +73,98 @@
             </div>
         </div>
 
-        <!-- Chart Section -->
-        <div class="chart-container bg-white p-6 rounded-lg shadow">
-            <h3 class="text-lg font-semibold mb-4">Subjects Overview</h3>
-            <canvas id="subjectsChart"></canvas>
+        <div class="chart-grid">
+
+            <!-- Doughnut Chart: Subjects with Topics -->
+            <div class="chart-container bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-4">Subjects Overview</h3>
+                <canvas id="subjectsChart"></canvas>
+            </div>
+
+            <!-- Bar Chart: Topics with Subtopics -->
+            <div class="chart-container bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-4">Topics Overview</h3>
+                <canvas id="topicsChart"></canvas>
+            </div>
+
+            <!-- Radar Chart: Subtopics with Worksheets -->
+            <div class="chart-container bg-white p-6 rounded-lg shadow">
+                <h3 class="text-lg font-semibold mb-4">Subtopics Overview</h3>
+                <canvas id="subtopicsChart"></canvas>
+            </div>
+
         </div>
     </main>
 </div>
 
-
 <script>
-    // Pass PHP data to JavaScript
+    // Data from Controller
     const subjectsData = @json($subjectsOverview);
+    const topicsData = @json($topicsOverview);
+    const subtopicsData = @json($subtopicsOverview);
 
-    // Extract labels and data from subjectsData
-    const labels = subjectsData.map(subject => subject.name);
-    const data = subjectsData.map(subject => subject.topic_count);
-
-    // Colors for the doughnut chart
-    const backgroundColors = [
-        'rgba(59, 130, 246, 0.6)', // Blue
-        'rgba(99, 102, 241, 0.6)', // Indigo
-        'rgba(34, 197, 94, 0.6)',  // Green
-        'rgba(251, 191, 36, 0.6)', // Yellow
-        'rgba(244, 114, 182, 0.6)',// Pink
-        'rgba(56, 189, 248, 0.6)', // Sky
-        'rgba(252, 165, 165, 0.6)',// Red
-        'rgba(163, 163, 163, 0.6)' // Gray
-    ];
-
-    // Chart.js Doughnut Chart
-    const ctx = document.getElementById('subjectsChart').getContext('2d');
-    new Chart(ctx, {
+    // Subjects Doughnut Chart
+    const subjectsLabels = subjectsData.map(subject => subject.name);
+    const subjectsCounts = subjectsData.map(subject => subject.topic_count);
+    new Chart(document.getElementById('subjectsChart').getContext('2d'), {
         type: 'doughnut',
         data: {
-            labels: labels,
+            labels: subjectsLabels,
             datasets: [{
-                label: 'Number of Topics',
-                data: data,
-                backgroundColor: backgroundColors,
-                hoverBackgroundColor: backgroundColors.map(color => color.replace('0.6', '0.8')),
-                borderWidth: 2,
-                borderColor: '#fff',
-                hoverOffset: 8 // Creates a subtle pop-out effect on hover
+                data: subjectsCounts,
+                backgroundColor: ['#4F46E5', '#F59E0B', '#10B981', '#EF4444', '#3B82F6', '#8B5CF6', '#F472B6']
             }]
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    display: true,
-                    position: 'bottom',
-                    labels: {
-                        font: { family: 'Arial, sans-serif', weight: 'bold', size: 12 },
-                        color: '#4B5563', // Gray color for legend text
-                        padding: 20
-                    }
-                },
-                tooltip: {
-                    backgroundColor: 'rgba(75, 85, 99, 0.9)', // Darker tooltip
-                    titleFont: { weight: 'bold' },
-                    bodyFont: { size: 12 },
-                    padding: 12,
-                    borderColor: 'rgba(37, 99, 235, 0.5)',
-                    borderWidth: 1,
-                }
-            },
-            layout: {
-                padding: { top: 10, left: 10, right: 10, bottom: 10 }
-            },
-            cutout: '70%', // Makes the doughnut chart center more visible for a modern look
+            plugins: { legend: { position: 'bottom' } },
+            cutout: '60%'
+        }
+    });
+
+    // Topics Bar Chart
+    const topicsLabels = topicsData.map(topic => topic.name);
+    const topicsCounts = topicsData.map(topic => topic.subtopic_count);
+    new Chart(document.getElementById('topicsChart').getContext('2d'), {
+        type: 'bar',
+        data: {
+            labels: topicsLabels,
+            datasets: [{
+                data: topicsCounts,
+                backgroundColor: 'rgba(99, 102, 241, 0.7)',
+                borderColor: 'rgba(99, 102, 241, 1)',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { display: false } },
+            scales: {
+                y: { beginAtZero: true }
+            }
+        }
+    });
+
+    // Subtopics Radar Chart
+    const subtopicsLabels = subtopicsData.map(subtopic => subtopic.name);
+    const subtopicsCounts = subtopicsData.map(subtopic => subtopic.worksheet_count);
+    new Chart(document.getElementById('subtopicsChart').getContext('2d'), {
+        type: 'radar',
+        data: {
+            labels: subtopicsLabels,
+            datasets: [{
+                label: 'Worksheets',
+                data: subtopicsCounts,
+                backgroundColor: 'rgba(16, 185, 129, 0.3)',
+                borderColor: 'rgba(16, 185, 129, 1)',
+                borderWidth: 2,
+                pointBackgroundColor: 'rgba(16, 185, 129, 1)'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: { legend: { position: 'top' } },
+            scales: { r: { beginAtZero: true } }
         }
     });
 </script>

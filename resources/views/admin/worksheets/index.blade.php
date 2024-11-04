@@ -7,9 +7,19 @@
 <div class="flex flex-col flex-1 p-6">
 
     <header class="flex justify-between items-center mb-6">
-        <h2 class="text-2xl font-semibold text-gray-800">Worksheets for Subtopic: {{ $subtopic->name }}</h2>
+        <div class="flex space-x-4">
+            <!-- Go Back Button -->
+            <a href="{{ route('admin.subtopics.index') }}"
+                class="bg-gray-500 hover:bg-gray-600 text-white px-4 py-2 rounded">
+                <i class="fa fa-arrow-left text-danger-300" aria-hidden="true"></i>
+            </a>
+
+            <h2 class=" text-2xl font-semibold text-gray-800">Worksheets for Subtopic: {{ $subtopic->name }}</h2>
+        </div>
+
+        <!-- Add New Worksheets Button -->
         <a href="{{ route('admin.worksheets.create', $subtopic->id) }}"
-            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Add New Worksheets</a>
+            class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Add New Worksheet</a>
     </header>
 
 

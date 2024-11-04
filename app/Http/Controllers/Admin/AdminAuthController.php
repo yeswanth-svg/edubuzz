@@ -15,6 +15,8 @@ use App\Models\User;
 
 class AdminAuthController extends Controller
 {
+
+
     //
     public function showLoginForm()
     {
@@ -83,8 +85,34 @@ class AdminAuthController extends Controller
             ];
         });
 
-        return view('admin.dashboard', compact('total_grades', 'total_subjects', 'total_topics', 'total_subtopics', 'total_worksheets', 'subjectsOverview'));
+        // Get the number of subtopics per topic
+        $topicsOverview = Topic::withCount('subtopics')->get()->map(function ($topic) {
+            return [
+                'name' => $topic->name,
+                'subtopic_count' => $topic->subtopics_count
+            ];
+        });
+
+        // Get the number of worksheets per subtopic
+        $subtopicsOverview = Subtopic::withCount('worksheets')->get()->map(function ($subtopic) {
+            return [
+                'name' => $subtopic->name,
+                'worksheet_count' => $subtopic->worksheets_count
+            ];
+        });
+
+        return view('admin.dashboard', compact(
+            'total_grades',
+            'total_subjects',
+            'total_topics',
+            'total_subtopics',
+            'total_worksheets',
+            'subjectsOverview',
+            'topicsOverview',
+            'subtopicsOverview'
+        ));
     }
+
 
 
 }

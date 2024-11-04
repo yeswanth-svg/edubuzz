@@ -3,23 +3,39 @@
 use App\Http\Controllers\Admin\{GradeController, SubjectController, SubtopicController, TopicController, AdminAuthController};
 use App\Http\Controllers\Admin\WorksheetsController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\User\RoutingController;
+use App\Http\Controllers\User\WorksheetController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController; // Import the HomeController if not already present
 
 // General Routes
-Route::get('/', function () {
-    return view('welcome');
-});
+
+
+Route::get('/', [HomeController::class, 'index']); //
 Route::get('/about', [HomeController::class, 'about'])->name('about');
 Route::get('/classes', [HomeController::class, 'classes'])->name('classes');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/policy', [HomeController::class, 'policy'])->name('policy');
 Route::get('/worksheets', [HomeController::class, 'worksheets'])->name('worksheets');
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+Route::get('/worksheets_groups', [WorksheetController::class, 'grades_pages'])->name('worksheets_grades');
+Route::get('/worksheets_subjects', [WorksheetController::class, 'subjects_pages'])->name('worksheets_subjects');
+Route::get('/worksheets_topics', [WorksheetController::class, 'topics_pages'])->name('worksheets_topics');
+
+
+
+//ROUTING ROUTES Through Grades
+Route::get('/worksheets/grade/{grade_id}', [RoutingController::class, 'through_grades'])->name('through_grades');
+Route::get('/worksheets/grade/topic/{topic_id}', [RoutingController::class, 'through_grades_topic'])->name('through_grades_topic');
+Route::get('/worksheets/grade/topic/subtopics/{subtopic_id}', [RoutingController::class, 'through_grades_topic_subtopics'])->name('through_grades_topic_subtopics');
+Route::get('/worksheets/grade/topic/subtopics/worksheet/{worksheet_id}', [RoutingController::class, 'through_grades_topic_subtopic_worksheets'])->name('through_grades_topic_subtopic_worksheets');
+
+//ROUTING THROUGH WORKSHEETS BY SUBJECTS
+Route::get('/worksheets/{subject}', [RoutingController::class, 'through_worksheets_by_subjects'])->name('through_worksheets_by_subjects');
+Route::get('/worksheets/topic/{topic_id}', [RoutingController::class, 'through_worksheets_by_topics'])->name('through_worksheets_by_topics');
+
+
+
+//END OF THE GENERAL ROUTES
 
 // Profile Routes
 Route::middleware('auth')->group(function () {
@@ -30,8 +46,8 @@ Route::middleware('auth')->group(function () {
 
 // Admin Authentication Routes
 Route::controller(AdminAuthController::class)->group(function () {
-    Route::get('/admin/login', 'showLoginForm')->name('admin.login');
-    Route::post('/admin/login', 'authenticate');
+    Route::get('/admin/', 'showLoginForm')->name('admin.login');
+    Route::post('/admin/', 'authenticate');
     Route::get('/admin/signup', 'showSignupForm')->name('admin.signup');
     Route::post('/admin/signup', 'store');
     Route::post('/admin/logout', 'logout')->name('admin.logout');
