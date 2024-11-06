@@ -46,9 +46,9 @@
                     Subtopics</a>
 
 
-                <a href="#" class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4"><i
+                <!-- <a href="#" class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4"><i
                         class="fas fa-cog w-6 h-6"></i>
-                    Settings</a>
+                    Settings</a> -->
             </nav>
         </aside>
 
