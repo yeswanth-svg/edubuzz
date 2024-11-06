@@ -57,12 +57,12 @@
                                 class="bg-yellow-100 text-yellow-500 hover:bg-yellow-200 hover:text-yellow-600 p-2 rounded-lg">
                                 <i class="fas fa-pencil" style="font-size:25px"></i>
                             </a>
-                            <form
+                            <form id="delete-form-{{ $worksheet->id }}"
                                 action="{{ route('admin.worksheets.destroy', ['subtopicId' => $worksheet->subtopic_id, 'id' => $worksheet->id]) }}"
                                 method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
+                                <button type="button" onclick="confirmDelete({{ $worksheet->id }})"
                                     class="bg-red-100 text-red-500 hover:bg-red-200 hover:text-red-600 p-2 rounded-lg">
                                     <i class="fas fa-trash" style="font-size:25px"></i>
                                 </button>
@@ -85,10 +85,27 @@
             // Optional: Configure DataTables here
             responsive: true,
             language: {
-                searchPlaceholder: "Search Topics",
+                searchPlaceholder: "Search Worksheets",
                 search: "",
             }
         });
     });
+
+    function confirmDelete(worksheetId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to delete this worksheet?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + worksheetId).submit();
+            }
+        });
+    }
 </script>
 @endsection

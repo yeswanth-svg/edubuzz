@@ -39,10 +39,11 @@
                                 class="bg-yellow-100 text-yellow-500 hover:bg-yellow-200 hover:text-yellow-600 p-2 rounded-lg">
                                 <i class="fas fa-pencil" style="font-size:25px"></i>
                             </a>
-                            <form action="{{ route('admin.topics.destroy', $topic->id) }}" method="POST" class="inline">
+                            <form id="delete-form-{{$topic->id}}" action="{{ route('admin.topics.destroy', $topic->id) }}"
+                                method="POST" class="inline">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit"
+                                <button type="button" onclick="confirmDelete({{$topic->id}})"
                                     class="bg-red-100 text-red-500 hover:bg-red-200 hover:text-red-600 p-2 rounded-lg">
                                     <i class="fas fa-trash" style="font-size:25px"></i>
                                 </button>
@@ -71,6 +72,24 @@
             }
         });
     });
+
+
+    function confirmDelete(topicId) {
+        Swal.fire({
+            title: 'Are you sure?',
+            text: "Do you want to delete this topic?",
+            icon: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Delete',
+            cancelButtonText: 'Cancel'
+        }).then((result) => {
+            if (result.isConfirmed) {
+                document.getElementById('delete-form-' + topicId).submit();
+            }
+        });
+    }
 </script>
 
 @endsection

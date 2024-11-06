@@ -12,7 +12,7 @@
             <label for="name" class="block text-dark-300 font-bold">Grade Name</label>
             <input
                 class="appearance-none block w-full bg-gray-200 text-gray-700 border border-black-500 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
-                id="grid-first-name" type="text" placeholder="Grade 1" name="name">
+                type="text" placeholder="Grade 1" name="name">
             @error('name')
                 <span class="text-red-500 text-sm">{{ $message }}</span>
             @enderror
