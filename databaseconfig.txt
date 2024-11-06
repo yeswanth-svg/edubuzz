@@ -1,0 +1,5 @@
+App.url = "https://www.kidzworksheets.com/";
+
+DbName = edubuzzkids_cloudeye_kidz
+Dbusername = edubuzzkids_cloudeye
+DbPassword = Cloudeye.12

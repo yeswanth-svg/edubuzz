@@ -327,39 +327,45 @@
                 <div class="accordion" id="accordionExample">
                     @php
                         $currentTopicId = $topic_id;
+                        // Assuming you have a variable $currentSubjectName to dynamically control which subject should stay open
+                        $currentSubjectName = $subject->name; // Adjust as needed based on the actual dynamic input
                     @endphp
                     @foreach ($uniqueTopics->groupBy('subject.name') as $subjectName => $topicGroup)
-                        <div class="accordion-item">
-                            <h2 class="accordion-header" id="heading{{ $loop->index }}" title="{{ $subjectName }} Topic">
-                                <button class="accordion-button {{ $loop->first ? '' : 'collapsed' }}" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $loop->index }}"
-                                    aria-expanded="{{ $loop->first ? 'true' : 'false' }}"
-                                    aria-controls="collapse{{ $loop->index }}">
-                                    {{ $subjectName }}
-                                </button>
-                            </h2>
-                            <div id="collapse{{ $loop->index }}"
-                                class="accordion-collapse collapse {{ $loop->first ? 'show' : '' }}"
-                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample">
-                                <div class="accordion-body">
-                                    <ul class="arrow-list">
-                                        @foreach ($topicGroup as $topic)
-                                            @if ($topic->id != $currentTopicId)
-                                                <li>
-                                                    <a href="{{route('through_worksheets_by_topics', $topic->id)}}"
-                                                        title="{{ $topic->name }}">
-                                                        {{ $topic->name }}
-                                                    </a>
-                                                </li>
-                                            @endif
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
+                                        @php
+                                            $isCurrentSubject = ($subjectName === $currentSubjectName); // Check if this is the current subject
+                                        @endphp
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="heading{{ $loop->index }}" title="{{ $subjectName }} Topic">
+                                                <button class="accordion-button {{ $isCurrentSubject ? '' : 'collapsed' }}" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapse{{ $loop->index }}"
+                                                    aria-expanded="{{ $isCurrentSubject ? 'true' : 'false' }}"
+                                                    aria-controls="collapse{{ $loop->index }}">
+                                                    {{ $subjectName }}
+                                                </button>
+                                            </h2>
+                                            <div id="collapse{{ $loop->index }}"
+                                                class="accordion-collapse collapse {{ $isCurrentSubject ? 'show' : '' }}"
+                                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body">
+                                                    <ul class="arrow-list">
+                                                        @foreach ($topicGroup as $topic)
+                                                            @if ($topic->id != $currentTopicId)
+                                                                <li>
+                                                                    <a href="{{ route('through_worksheets_by_topics', $topic->id) }}"
+                                                                        title="{{ $topic->name }}">
+                                                                        {{ $topic->name }}
+                                                                    </a>
+                                                                </li>
+                                                            @endif
+                                                        @endforeach
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
                     @endforeach
                 </div>
             </div>
+
 
         </div>
 
