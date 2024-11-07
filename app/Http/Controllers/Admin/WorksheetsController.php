@@ -175,5 +175,18 @@ class WorksheetsController extends Controller
             ->with('message', 'Worksheet deleted successfully!');
     }
 
+    public function bulkDelete(Request $request)
+    {
+        $ids = $request->ids;
+
+        if ($ids) {
+            Worksheet::whereIn('id', $ids)->delete();
+            return response()->json(['message' => 'Selected worksheets have been deleted successfully.']);
+        }
+
+        return response()->json(['message' => 'No worksheets selected.'], 400);
+    }
+
+
 
 }

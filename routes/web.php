@@ -72,6 +72,9 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // In your routes/web.php
     Route::delete('/subtopics/{subtopicId}/worksheets/{id}', [WorksheetsController::class, 'destroy'])->name('worksheets.destroy');
 
+    Route::post('/worksheets/bulk-delete', [WorksheetsController::class, 'bulkDelete'])->name('worksheets.bulkDelete');
+
+
 });
 
 require __DIR__ . '/auth.php';

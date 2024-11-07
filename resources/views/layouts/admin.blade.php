@@ -44,11 +44,15 @@
                     class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4">
                     <i class="fas fa-list w-6 h-6"></i>
                     Subtopics</a>
+                <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="inline">
+                    @csrf
+                    <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
+                        class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4">
+                        <i class="fas fa-sign-out-alt"></i>
+                        Logout
+                    </a>
+                </form>
 
-
-                <!-- <a href="#" class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4"><i
-                        class="fas fa-cog w-6 h-6"></i>
-                    Settings</a> -->
             </nav>
         </aside>
 
