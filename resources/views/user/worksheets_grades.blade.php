@@ -4,8 +4,10 @@
 @section('content')
 <style>
     .ag-format-container {
-        width: 1142px;
+        max-width: 1142px;
         margin: 0 auto;
+        padding: 0 1rem;
+        /* Padding for mobile */
     }
 
     .ag-courses_box {
@@ -20,6 +22,11 @@
         margin: 0 15px 30px;
         overflow: hidden;
         border-radius: 28px;
+        transition: transform 0.3s ease;
+    }
+
+    .ag-courses_item:hover {
+        transform: translateY(-5px);
     }
 
     .ag-courses-item_link {
@@ -35,6 +42,7 @@
         color: #FFF;
     }
 
+    /* Reduced scale for mobile hover */
     .ag-courses-item_link:hover .ag-courses-item_bg {
         transform: scale(10);
     }
@@ -101,18 +109,42 @@
 
     /* Responsive design */
     @media only screen and (max-width: 979px) {
+        .ag-format-container {
+            padding: 0 2rem;
+            /* Increased padding on tablets */
+        }
+
         .ag-courses_item {
-            flex-basis: calc(50% - 30px);
+            flex-basis: calc(50% - 20px);
         }
 
         .ag-courses-item_title {
             font-size: 24px;
         }
+
+        /* Adjust scale on hover for smaller screens */
+        .ag-courses-item_link:hover .ag-courses-item_bg {
+            transform: scale(6);
+        }
     }
 
     @media only screen and (max-width: 639px) {
+        .ag-format-container {
+            padding: 0 1rem;
+        }
+
         .ag-courses_item {
             flex-basis: 100%;
+            margin: 0 0 20px;
+        }
+
+        .ag-courses-item_title {
+            font-size: 20px;
+        }
+
+        /* Further reduce scale on hover for mobile */
+        .ag-courses-item_link:hover .ag-courses-item_bg {
+            transform: scale(4);
         }
     }
 </style>
@@ -127,7 +159,7 @@
                     $colorClass = 'bg-color-' . ($index % 6);
                 @endphp
                 <div class="ag-courses_item">
-                    <a href="#" class="ag-courses-item_link">
+                    <a href="href=" {{ route('through_grades', $grade->id) }}" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg {{ $colorClass }}"></div>
 
                         <div class="ag-courses-item_title text-center">

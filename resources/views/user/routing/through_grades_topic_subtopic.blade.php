@@ -91,16 +91,11 @@
     /* Responsive adjustments */
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
-
-        .col-xl-3,
-        .col-sm-4,
-        .col-6 {
-            flex: 0 0 100%;
-            /* Full width on smaller screens */
-            max-width: 100%;
-            margin-bottom: 15px;
-            /* Spacing between items */
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
         }
+
 
         .heading-tabs ul li {
             padding: 10px 30px;
@@ -125,6 +120,8 @@
             margin: 0 auto;
             /* Center container */
         }
+
+
     }
 
     @media (max-width: 576px) {
@@ -135,15 +132,12 @@
             /* Responsive font size */
         }
 
-        .img-box-2 {
-            height: 130px;
-            /* Adjust height */
+
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
         }
 
-        .img-box-2 img {
-            max-height: 100px;
-            /* Adjust max height */
-        }
 
         .img-box-2 p {
             font-size: 12px;
@@ -164,6 +158,8 @@
             padding: 0 15px;
             /* Add padding to accordion container */
         }
+
+
     }
 
     .bg-orange {

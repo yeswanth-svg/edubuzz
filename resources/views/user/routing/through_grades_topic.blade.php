@@ -83,19 +83,18 @@
         font-weight: 300;
     }
 
+    .m-t-14 {
+        margin-top: 14px;
+    }
+
 
     /* Responsive adjustments */
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
 
-        .col-xl-3,
-        .col-sm-4,
-        .col-6 {
-            flex: 0 0 100%;
-            /* Full width on smaller screens */
-            max-width: 100%;
-            margin-bottom: 15px;
-            /* Spacing between items */
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
         }
 
         .heading-tabs ul li {
@@ -115,21 +114,17 @@
     }
 
     @media (max-width: 576px) {
+
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
+        }
+
         .heading-tabs ul li {
             padding: 8px 20px;
             /* Further reduced padding */
             font-size: 14px;
             /* Responsive font size */
-        }
-
-        .img-box-2 {
-            height: 130px;
-            /* Adjust height */
-        }
-
-        .img-box-2 img {
-            max-height: 100px;
-            /* Adjust max height */
         }
 
         .img-box-2 p {
