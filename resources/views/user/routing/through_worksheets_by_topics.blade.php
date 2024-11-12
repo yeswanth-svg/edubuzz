@@ -88,15 +88,7 @@
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
 
-        .col-xl-3,
-        .col-sm-4,
-        .col-6 {
-            flex: 0 0 100%;
-            /* Full width on smaller screens */
-            max-width: 100%;
-            margin-bottom: 15px;
-            /* Spacing between items */
-        }
+
 
         .heading-tabs ul li {
             padding: 10px 30px;
@@ -122,15 +114,6 @@
             /* Responsive font size */
         }
 
-        .img-box-2 {
-            height: 130px;
-            /* Adjust height */
-        }
-
-        .img-box-2 img {
-            max-height: 100px;
-            /* Adjust max height */
-        }
 
         .img-box-2 p {
             font-size: 12px;

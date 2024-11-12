@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <title>@yield('title', 'Edubuzz-kids')</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <meta content="" name="keywords" />
     <meta content="" name="description" />
 
@@ -12,8 +12,10 @@
     <link href="{{asset('favicon.gif')}}" rel="icon" />
 
     <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap" rel="stylesheet">
+
 
 
     <!-- Icon Font Stylesheet -->
@@ -81,6 +83,77 @@
                 /* Keep button size consistent */
             }
         }
+
+        footer {
+            background: #ffb616;
+            padding: 34px 0 0 0;
+        }
+
+        footer .footer-container {
+            width: 80%;
+            margin: auto;
+        }
+
+        footer .wrap-1 {
+            padding-left: 30%;
+        }
+
+        footer .wrap-1 h3 {
+            font-size: 26px;
+            margin-bottom: 21px;
+            color: #fff;
+        }
+
+        footer .wrap-1 ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        footer .wrap-1 a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 19px;
+        }
+
+        footer .footer-copyright {
+            padding: 16px 0;
+            color: #fff;
+            margin-top: 16px;
+            border-top: #fff 1px solid;
+        }
+
+        footer .footer-copyright a {
+            color: #fff;
+            text-decoration: none;
+        }
+
+        /*** Heading ***/
+        h1,
+        h2,
+        h3,
+        h4,
+        .h1,
+        .h2,
+        .h3,
+        .h4,
+        .display-1,
+        .display-2,
+        .display-3,
+        .display-4,
+        .display-5,
+        .display-6,
+        p,
+        a {
+            font-family: "Fredoka", sans-serif;
+            font-weight: 500;
+
+        }
+
+        .font-secondary {
+
+            font-family: "Fredoka", sans-serif !important;
+        }
     </style>
 
 </head>
@@ -123,137 +196,83 @@
         </div>
     </nav>
 
-
+    @yield('caurosel')
     <!-- Navbar End -->
-
-    @yield('content')
+    <div class="container-xxl bg-white p-0">
+        @yield('content')
+    </div>
 
     <!-- Footer Start -->
-    <div class=" text-white-50 footer pt-5 mt-5 wow fadeIn" data-wow-delay="0.1s" style="background-color: #ffb616;">
-        <div class="container py-5">
-            <div class="row g-5">
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Get In Touch</h3>
-                    <p class="text-white mb-4">
-                        <i class="fa fa-map-marker-alt me-3"></i>123
-                        Street, New York, USA
-                    </p>
-                    <p class="text-white mb-4">
-                        <i class="fa fa-phone-alt me-3"></i>+012 345
-                        67890
-                    </p>
-                    <p class="text-white mb-4">
-                        <i class="fa fa-envelope me-3"></i>info@example.com
-                    </p>
-                    <div class="d-flex pt-2">
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-twitter"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-outline-light btn-social" href="https://www.youtube.com/user/edubuzzkids"><i
-                                class="fab fa-youtube"></i></a>
-                        <a class="btn btn-outline-light btn-social" href=""><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Quick Links</h3>
-                    <a class="btn btn-link text-white mb-4" href="{{ url('/about') }}">About Us</a>
-                    <a class="btn btn-link text-white mb-4" href="{{ url('/contact') }}">Contact Us</a>
-                    <a class="btn btn-link text-white mb-4" href="">Terms & Condition</a>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Video Gallery</h3>
-                    <div class="row g-2 pt-2">
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/LH76IS_Qoi4/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=LH76IS_Qoi4', '_blank')">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/zkqxpCXcQJI/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=zkqxpCXcQJI', '_blank')">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/udxSNNEEeZw/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=udxSNNEEeZw', '_blank')">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/1rWAKJCH4ic/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=1rWAKJCH4ic', '_blank')">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/AOhLhy3rIx0/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=AOhLhy3rIx0', '_blank')">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="position-relative" style="width: 100%; padding-bottom: 100%; overflow: hidden;">
-                                <img src="https://img.youtube.com/vi/o2Z7FkJFPkc/0.jpg" alt="Video Thumbnail"
-                                    class="img-fluid position-absolute top-0 start-0 w-100 h-100"
-                                    style="object-fit: cover;"
-                                    onclick="window.open('https://www.youtube.com/watch?v=o2Z7FkJFPkc', '_blank')">
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-
-                <div class="col-lg-3 col-md-6">
-                    <h3 class="text-white mb-4">Support</h3>
-                    <a class="btn btn-link text-white mb-4" href="{{ url('/policy') }}">Privacy Policy</a>
-                    <div class="position-relative mx-auto" style="max-width: 400px">
-                        <!-- <input class="form-control bg-transparent w-100 py-3 ps-4 pe-5" type="text"
-                            placeholder="Your email" />
-                        <button type="button" class="btn btn-primary py-2 position-absolute top-0 end-0 mt-2 me-2">
-                            SignUp
-                        </button> -->
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="container">
-            <div class="copyright">
+    <footer class="mt-4">
+        <div class="container-lg">
+            <div class="footer-container">
                 <div class="row">
-                    <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                        &copy;
-                        <a class="border-bottom" href="{{ url('/') }}">EduBuzzKids</a>, All Right Reserved.
-
-                        <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                        Designed By
-                        <a class="border-bottom" href="https://www.cloudeyetech.com/">CloudEye Technologies</a>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>GRADES</h3>
+                            <ul>
+                                <li><a href="{{ route('through_grades', ['grade_id' => 10]) }}">PRE -K</li>
+                                <li><a href="{{ route('through_grades', ['grade_id' => 11]) }}">K</a></li>
+                                <li><a href="{{ route('through_grades', ['grade_id' => 12]) }}">GRADE 1</a></li>
+                                <li><a href="{{ route('through_grades', ['grade_id' => 13]) }}">GRADE 2</a></li>
+                            </ul>
+                        </div>
                     </div>
-                    <div class="col-md-6 text-center text-md-end">
-                        <div class="footer-menu">
-                            <a href="{{ url('/') }}">Home</a>
-                            <a href="{{ url('/about') }}">About us</a>
-                            <a href="{{ url('/contact') }}">Contact us</a>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>PRINTABLES</h3>
+                            <ul>
+                                <li><a href="{{route('through_worksheets_by_subjects', 'math')}}">MATH</a></li>
+                                <li> <a href="{{route('through_worksheets_by_subjects', 'english')}}">ENGLISH</a></li>
+                                <li> <a href="{{route('through_worksheets_by_subjects', 'science')}}">SCIENCE</a></li>
+                                <li><a href="{{ route('through_grades_topic', ['topic_id' => 63]) }}">COLORING</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>SUPPORT</h3>
+                            <ul>
+                                <!--<li><a href="#">FAQ's</a></li>-->
+                                <li><a href="{{ url('/policy') }}">PRIVACY POLICY</a></li>
+                                <!--<li><a href="#">COPPA PRIVACY POLICY</a></li>
+                <li><a href="#">TERMS OF SERVICE</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>ABOUT US</h3>
+                            <ul>
+                                <li><a href="https://www.littlebrainworks.com/" target="_blank">COMPANY</a></li>
+                                <!--<li><a href="#">CAREERS</a></li>
+                <li><a href="#">PRESS</a></li>-->
+                                <li><a href="https://www.littlebrainworks.com/" target="_blank">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <div class="footer-copyright text-center">
+                            <p>Copyright &copy; <span id="year"></span> <a
+                                    href="https://www.cloudeyetech.com/">EDUBUZZKIDS</a>.All rights reserved</p>
+
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
-    </div>
+
+    </footer>
     <!-- Footer End -->
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
-
+    <script>
+        document.getElementById("year").textContent = new Date().getFullYear();
+    </script>
 
     <!-- JavaScript Libraries -->
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>

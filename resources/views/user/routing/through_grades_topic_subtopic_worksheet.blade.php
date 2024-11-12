@@ -143,6 +143,11 @@
         .wkstdesc {
             width: 100%;
         }
+
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
+        }
     }
 
     /* Override the default disabled class */
@@ -226,7 +231,10 @@
                 </div>
             </div>
 
+
+
             <div class="col-md-7">
+
                 <table border="0" id="contentTable" cellpadding="0" cellspacing="0" width="100%" align="center"
                     height="100%">
                     <tbody>
@@ -244,12 +252,17 @@
                                                 class="commonBtnStyle btn_violet print-btn_ht"
                                                 onclick="window.open('{{ asset($worksheet->file_path) }}', '_blank')">Print</button>
                                         </div>
+
+                                        <div style="text-align: center;">
+                                            <iframe src="{{ asset($worksheet->file_path) }}
+                                                width=" 100%" height="600px">
+                                            </iframe>
+                                        </div>
                                         <div id="divLoadFrame">
                                             <iframe id="PdfFrame"
                                                 src="{{ asset($worksheet->file_path) }}#view=fit&amp;scrollbar=0&amp;toolbar=0"
                                                 width="100%" height="1078" scrolling="no">
                                             </iframe>
-
 
                                         </div>
                                     </div>
@@ -259,18 +272,13 @@
                     </tbody>
                 </table>
 
-                <section class="page4-section-1 text-center">
-                    <div class="container-lg wkstdesc">
-                        <div class="content-name">{{ $worksheet->name }}</div>
-                        <div class="content-description">{{ $worksheet->description }}</div>
-                    </div>
-                </section>
             </div>
+
 
             <div class="col-md-3 xs-m-t-36">
                 <h3 class="bg-title bg-orange">Our Videos</h3>
                 <div class="row">
-                    <div class="youtube-video-box m-t-14">
+                    <div class="youtube-video-box m-t-14 text-center">
                         <iframe src="https://www.youtube.com/embed/-xQ5NSVsfj4" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
@@ -279,6 +287,14 @@
                     <!-- Additional videos here -->
                 </div>
             </div>
+            <section class="page4-section-1 text-center">
+                <div class="container-lg wkstdesc">
+                    <div class="content-name">{{ $worksheet->name }}</div>
+                    <div class="content-description">{{ $worksheet->description }}</div>
+                </div>
+            </section>
+
+
         </div>
     </div>
 </section>
@@ -286,24 +302,29 @@
 
 
 <!-- New Section for Related Worksheets Carousel -->
-<section class="related-worksheets" style="margin-top:9pc;">
-    <div class="container-lg">
+
+
+<section class="carousel-section" style="margin-top:9pc;">
+    <div class="section-title">
         <h3 class="color-orange text-center">Related Worksheets</h3>
+    </div>
+    <div class="container">
         <div class="related_worksheets owl-carousel owl-theme">
             @foreach ($relatedWorksheets as $relatedWorksheet)
-                <div class="item">
-                    <div class="img-box-2">
-                        <a href="{{ route('through_grades_topic_subtopic_worksheets', $relatedWorksheet->id) }}"
-                            title="{{ $relatedWorksheet->name }}">
-                            <img src="{{ asset($relatedWorksheet->thumbnail) }}" alt="{{ $relatedWorksheet->name }}">
-                        </a>
-                        <h3>{{ $relatedWorksheet->name }}</h3>
-                    </div>
+                <div class="item text-center">
+                    <a href="{{ route('through_grades_topic_subtopic_worksheets', $relatedWorksheet->id) }}"
+                        title="{{ $relatedWorksheet->name }}">
+                        <img src="{{ asset($relatedWorksheet->thumbnail) }}" alt="{{ $relatedWorksheet->name }}">
+                    </a>
+                    <h3>{{ $relatedWorksheet->name }}</h3>
                 </div>
             @endforeach
         </div>
     </div>
 </section>
+
+
+
 
 <script>
     console.log("PDF Path:", "{{ asset($worksheet->file_path) }}");

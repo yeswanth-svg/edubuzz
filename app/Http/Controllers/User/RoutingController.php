@@ -127,11 +127,10 @@ class RoutingController extends Controller
         $subject = $topic->subject; // This retrieves the related subject from the topic
         $currentGradeId = $subject->grade_id; // Get the current worksheet's subject's grade ID
 
-        // Fetch related worksheets based on the same subject and topic but exclude the current grade
-        $relatedWorksheets = Worksheet::whereHas('subtopic.topic.subject', function ($query) use ($topic, $subject, $currentGradeId) {
-            $query->where('subjects.id', $subject->id) // Match the subject ID
-                ->where('topics.id', $topic->id) // Match the topic ID
-                ->where('subjects.grade_id', '!=', $currentGradeId); // Exclude the current worksheet's grade using grade_id
+    
+        // Fetch related worksheets based on the same topic across all grades
+        $relatedWorksheets = Worksheet::whereHas('subtopic.topic', function ($query) use ($topic) {
+            $query->where('topics.id', $topic->id); // Match the topic ID
         })->get();
 
         // Fetch remaining worksheets from the same subtopic (if needed)

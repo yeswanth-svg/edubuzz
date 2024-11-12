@@ -2,46 +2,9 @@
 
 @section('title', 'Edubuzz - Kids')
 
-@section('content')
-<style>
-    .button-74 {
-        background-color: #fbeee0;
-        border: 2px solid #422800;
-        border-radius: 30px;
-        box-shadow: #422800 4px 4px 0 0;
-        color: #422800;
-        cursor: pointer;
-        display: inline-block;
-        font-weight: 600;
-        font-size: 18px;
-        padding: 0 18px;
-        line-height: 50px;
-        text-align: center;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }
-
-    .button-74:hover {
-        background-color: #fff;
-    }
-
-    .button-74:active {
-        box-shadow: #422800 2px 2px 0 0;
-        transform: translate(2px, 2px);
-    }
-
-    @media (min-width: 768px) {
-        .button-74 {
-            min-width: 120px;
-            padding: 0 25px;
-        }
-    }
-</style>
-
-
+@section('caurosel')
 <!-- Carousel Start -->
+
 <div class="container-fluid p-0 mb-5">
     <div class="owl-carousel header-carousel position-relative">
         <div class="owl-carousel-item position-relative">
@@ -84,10 +47,109 @@
     </div>
 </div>
 <!-- Carousel End -->
+@endsection
+
+
+@section('content')
+
+<style>
+    /* Adjust carousel for better mobile responsiveness */
+    .owl-carousel .owl-carousel-item img {
+        height: 450px !important;
+    }
+
+    /* General responsive layout adjustments */
+    .container-fluid,
+    .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+
+    /* Ensure no horizontal scroll by setting the body overflow */
+    body {
+        overflow-x: hidden;
+    }
+
+    /* Adjust button styling for smaller screens */
+    .button-74 {
+        width: 100%;
+        background-color: #fbeee0;
+        border: 2px solid #422800;
+        border-radius: 30px;
+        box-shadow: #422800 4px 4px 0 0;
+        color: #422800;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0 18px;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+        -webkit-user-select: none;
+        touch-action: manipulation;
+    }
+
+    .button-74:hover {
+        background-color: #fff;
+    }
+
+    .button-74:active {
+        box-shadow: #422800 2px 2px 0 0;
+        transform: translate(2px, 2px);
+    }
+
+    @media screen (max-width:569px) {
+        .owl-carousel .owl-item img {
+            object-fit: cover;
+            height: 200px !important;
+        }
+
+    }
+
+    /* Carousel items spacing and size adjustments on mobile */
+    @media (max-width: 768px) {
+        .facility-item {
+            padding: 20px;
+        }
+
+        .owl-carousel .owl-item img {
+            object-fit: cover;
+            height: 400px !important;
+        }
+
+        .h-100 {
+            height: 400px !important;
+        }
+
+        #margin-top {
+            margin-top: -10pc !important;
+        }
+
+
+        /* Adjusting text size for headers on mobile */
+        h1 {
+            font-size: 24px;
+        }
+
+
+        /* Adjust iframe (video) container */
+        .bg-light.d-flex {
+            width: 100% !important;
+            height: auto;
+            max-width: 350px;
+        }
+    }
+</style>
+
+
+
 
 
 <!-- Worksheets Start -->
-<div class="container py-5" style="background-color:white;">
+<div class="container py-5" id="margin-top" style="background-color:white;">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
         <h1 class="mb-3">Worksheets</h1>
     </div>
@@ -166,6 +228,7 @@
 <!-- Worksheets End -->
 <br>
 <br>
+
 <!-- Grades Start -->
 <div class="container py-5" style="background-color:white;">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
@@ -279,106 +342,75 @@
 <!-- Learning Made Fun End -->
 
 <!-- videos Start -->
-
 <div class="container d-flex flex-column align-items-center">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
         <h1 class="mb-3">Videos</h1>
-        <!-- <p>Eirmod sed ipsum dolor sit rebum labore magna erat. Tempor ut dolore lorem kasd vero ipsum sit eirmod
-                sit. Ipsum diam justo sed rebum vero dolor duo.</p> -->
+
     </div>
-    <div class="row g-4">
+    <div class="row g-4 justify-content-center">
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/zkqxpCXcQJI"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-2.jpg')}}" alt=""> -->
-                </div>
+
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/zkqxpCXcQJI" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
+            <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-2.jpg')}}" alt=""> -->
+
         </div>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/udxSNNEEeZw"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-2.jpg')}}" alt=""> -->
-                </div>
+
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/udxSNNEEeZw" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
+            <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-2.jpg')}}" alt=""> -->
+
         </div>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/1rWAKJCH4ic"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-3.jpg')}}" alt=""> -->
-                </div>
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/1rWAKJCH4ic" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
+            <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-3.jpg')}}" alt=""> -->
+
         </div>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/AOhLhy3rIx0"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-4.jpg')}}" alt=""> -->
-                </div>
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/AOhLhy3rIx0" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
+            <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-4.jpg')}}" alt=""> -->
         </div>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/o2Z7FkJFPkc"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-5.jpg')}}" alt=""> -->
-                </div>
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/o2Z7FkJFPkc" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
         </div>
         <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="classes-item">
-                <div class="bg-light rounded-circle w-75 mx-auto p-3">
-                    <div class="bg-light d-flex justify-content-center align-items-center"
-                        style="width: 400px; height: 300px; overflow: hidden;">
-                        <iframe class="img-fluid" src="https://www.youtube.com/embed/LH76IS_Qoi4"
-                            title="YouTube video player"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowfullscreen style="width: 100%; height: 100%;">
-                        </iframe>
-                    </div>
-                    <!-- <img class="img-fluid rounded-circle" src="{{asset('build/img/classes-6.jpg')}}" alt=""> -->
-                </div>
+            <div class="bg-light d-flex justify-content-center align-items-center"
+                style="width: 400px; height: 300px; overflow: hidden;">
+                <iframe class="img-fluid" src="https://www.youtube.com/embed/LH76IS_Qoi4" title="YouTube video player"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                    allowfullscreen style="width: 100%; height: 100%;">
+                </iframe>
             </div>
+
         </div>
         <div class="d-flex justify-content-center mt-4">
             <a href="https://www.youtube.com/user/edubuzzkids" class="btn btn-primary px-4 py-2" target="_blank"

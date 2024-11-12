@@ -1,9 +1,27 @@
 @extends('layouts.apps')
 @section('title', 'Edubuzz-Worksheets')
+
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 
 <style>
-    p {
+    .page-banner {
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
+    #para {
         color: #000;
     }
 
@@ -17,7 +35,7 @@
         margin-bottom: 15px;
     }
 
-    .worksheets-by-subject p {
+    .worksheets-by-subject #para {
         font-size: 1rem;
         line-height: 1.6;
         color: black !important;
@@ -144,7 +162,7 @@
         padding: 15px;
         border-radius: 8px;
         text-align: center;
-        width: 150px;
+        width: 144px;
         transition: transform 0.2s ease-out, box-shadow 0.5s ease-out;
         box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     }
@@ -168,6 +186,25 @@
         /* Increase shadow */
         cursor: pointer;
         /* Pointer on hover */
+    }
+
+    @media (max-width: 768px) {
+        .facility-item {
+            padding: 20px;
+        }
+
+        .owl-carousel .owl-item img {
+            object-fit: cover;
+            height: 400px !important;
+        }
+
+        .h-100 {
+            height: 400px !important;
+        }
+
+        #margin-top {
+            margin-top: -14pc !important;
+        }
     }
 </style>
 
@@ -211,51 +248,9 @@
     }
 </style>
 
-<!-- Carousel Start -->
-<div class="container-fluid p-0 mb-5">
-    <div class="owl-carousel header-carousel position-relative">
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('build/img/carousel-1.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(0, 0, 0, .2);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">The Best Kindergarten School For
-                                Your Child</h1>
-                            <a href="" class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">
-                                Worksheets</a>
-                            <a href=""
-                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Grades</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="owl-carousel-item position-relative">
-            <img class="img-fluid" src="{{asset('build/img/carousel-2.jpg')}}" alt="">
-            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center"
-                style="background: rgba(0, 0, 0, .2);">
-                <div class="container">
-                    <div class="row justify-content-start">
-                        <div class="col-10 col-lg-8">
-                            <h1 class="display-2 text-white animated slideInDown mb-4">Make A Brighter Future For Your
-                                Child</h1>
-                            <a href=""
-                                class="btn btn-primary rounded-pill py-sm-3 px-sm-5 me-3 animated slideInLeft">Worksheets</a>
-                            <a href=""
-                                class="btn btn-dark rounded-pill py-sm-3 px-sm-5 animated slideInRight">Grades</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- Carousel End -->
 
 <!-- Grades Start -->
-<div class="container py-5" style="background-color:white;">
+<div class="container py-5" id="margin-top" style="background-color:white;">
     <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
         <h1 class="mb-3">Grades</h1>
         <p>Our worksheets are designed to be educational and fun at the same time. The concepts of our English
@@ -371,7 +366,8 @@
             </div>
             <div class="col-lg-5 col-md-12 text-content">
                 <h2>Worksheets by Subject</h2>
-                <p>Our worksheets are designed to be educational and fun at the same time. The concepts of our English
+                <p id="para">Our worksheets are designed to be educational and fun at the same time. The concepts of our
+                    English
                     worksheets address skills in a variety of ways, from coloring, writing, puzzles to mazes to letter
                     and picture matching. We cover all the important math skills including arithmetic, geometry, money,
                     time, and measurement. Our science worksheets address environmental concepts including animal names
@@ -408,19 +404,21 @@
                 @endif
             </div>
 
-            <div class="topic-options col-lg-10 col-md-9 col-sm-8"
-                style="display: flex; justify-content: flex-start; gap: 15px; flex-wrap: wrap;">
-                @foreach ($topicGroup as $topic) <!-- Loop through each topic under the subject -->
-                    <a href="{{route('through_worksheets_by_topics', $topic->id)}}" class="topic-link">
-                        <div class="topic-card"
-                            style="background-color: #e0e0e0; padding: 10px; border-radius: 8px; flex: 1; min-width: 150px;">
+            <div class="topic-options col-lg-10 col-md-9 col-sm-8">
+                <div class="row"> <!-- Add row for responsive layout control -->
+                    @foreach ($topicGroup as $topic) <!-- Loop through each topic under the subject -->
+                        <a href="{{route('through_worksheets_by_topics', $topic->id)}}"
+                            class="topic-link col-lg-2 col-md-4 col-sm-6 col-6">
+                            <div class="topic-card"
+                                style="background-color: #e0e0e0; padding: 10px; border-radius: 8px; text-align: center; margin-bottom: 15px;">
 
-                            <!-- Assuming you have a route for topic detail -->
-                            {{ $topic->name }} <!-- Topic Name -->
+                                <!-- Assuming you have a route for topic detail -->
+                                {{ $topic->name }} <!-- Topic Name -->
 
-                        </div>
-                    </a>
-                @endforeach
+                            </div>
+                        </a>
+                    @endforeach
+                </div>
             </div>
         </div>
     @endforeach
@@ -429,6 +427,7 @@
         <a href="{{route('worksheets_topics')}}"><button class="button-74" role="button">More Topics</button></a>
     </div>
 </section>
+
 
 
 
