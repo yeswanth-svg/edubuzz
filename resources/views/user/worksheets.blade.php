@@ -15,16 +15,38 @@
 @section('content')
 
 <style>
+    /* General Styles */
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f6f5ee;
+    }
+
+    .container {
+        width: 100%;
+        max-width: 1200px;
+        margin: auto;
+        padding: 20px;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* Page Banner */
     .page-banner {
         height: 300px;
         overflow: hidden;
         margin-bottom: 10px;
     }
 
+    /* Paragraph */
     #para {
         color: #000;
     }
 
+    /* Worksheets by Subject */
     .worksheets-by-subject {
         padding: 30px;
         text-align: center;
@@ -75,7 +97,138 @@
         margin-top: 20px;
     }
 
+    /* Button */
+    .button-74 {
+        background-color: #fbeee0;
+        border: 2px solid #422800;
+        border-radius: 30px;
+        box-shadow: #422800 4px 4px 0 0;
+        color: #422800;
+        cursor: pointer;
+        display: inline-block;
+        font-weight: 600;
+        font-size: 18px;
+        padding: 0 18px;
+        line-height: 50px;
+        text-align: center;
+        text-decoration: none;
+        user-select: none;
+    }
+
+    .button-74:hover {
+        background-color: #fff;
+    }
+
+    .button-74:active {
+        box-shadow: #422800 2px 2px 0 0;
+        transform: translate(2px, 2px);
+    }
+
+    @media (min-width: 768px) {
+        .button-74 {
+            min-width: 120px;
+            padding: 0 25px;
+        }
+    }
+
+    /* Workshops by Topic */
+    .workshops-by-topic {
+        background-color: #e5d4ff;
+        padding: 30px;
+        text-align: center;
+    }
+
+    .subject-section h3 {
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #4a2c8c;
+        margin-bottom: 10px;
+    }
+
+    .topic-options {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        flex-wrap: wrap;
+    }
+
+    .topic-card {
+        background-color: whitesmoke;
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+        width: 144px;
+        transition: transform 0.2s ease-out, box-shadow 0.5s ease-out;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    }
+
+    .topic-link {
+        text-decoration: none;
+        color: black;
+        font-size: 1rem;
+    }
+
+    .topic-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        cursor: pointer;
+    }
+
+    /* Grades Section */
+    .grade-card {
+        padding: 20px;
+        border-radius: 15px;
+        text-align: center;
+        color: #333;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.2s;
+        margin: 10px;
+    }
+
+    .grade-card:hover {
+        transform: translateY(-5px);
+    }
+
+    .card-image {
+        width: 120px;
+        height: auto;
+        margin-bottom: 15px;
+        border-radius: 75px;
+    }
+
+    .card-title {
+        font-size: 1.25rem;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: white;
+    }
+
+    .card-description {
+        font-size: 0.9rem;
+        color: white;
+    }
+
+    /* Responsive Grid Layout */
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .col-lg-3,
+    .col-sm-6 {
+        flex: 1 1 22%;
+        max-width: 22%;
+        box-sizing: border-box;
+    }
+
     @media (max-width: 768px) {
+
+        .col-lg-3,
+        .col-sm-6 {
+            flex: 1 1 48%;
+            max-width: 48%;
+        }
+
         .subject-options {
             gap: 10px;
         }
@@ -98,235 +251,75 @@
         .worksheets-by-subject p {
             font-size: 0.9rem;
         }
-    }
 
-    /* General Section Styles */
-    .workshops-by-topic {
-        background-color: #e5d4ff;
-        padding: 30px;
-        text-align: center;
-    }
-
-    /* Main Heading Styles */
-    h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    /* Subject Heading Styles */
-    .subject-section h3 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #4a2c8c;
-        /* Dark purple for subject heading */
-        margin-bottom: 10px;
-    }
-
-    /* Topic Options Container */
-    /* General Section Styles */
-    .workshops-by-topic {
-        background-color: #e5d4ff;
-        padding: 30px;
-        text-align: center;
-    }
-
-    /* Main Heading Styles */
-    h2 {
-        font-size: 2rem;
-        font-weight: bold;
-        margin-bottom: 20px;
-    }
-
-    /* Subject Heading Styles */
-    .subject-section h3 {
-        font-size: 1.8rem;
-        font-weight: 600;
-        color: #4a2c8c;
-        /* Dark purple for subject heading */
-        margin-bottom: 10px;
-    }
-
-    /* Topic Options Container */
-    .topic-options {
-        display: flex;
-        justify-content: center;
-        gap: 15px;
-        /* Reduced gap for less space */
-        flex-wrap: wrap;
-    }
-
-    /* Topic Card Styles */
-    .topic-card {
-        background-color: whitesmoke;
-        padding: 15px;
-        border-radius: 8px;
-        text-align: center;
-        width: 144px;
-        transition: transform 0.2s ease-out, box-shadow 0.5s ease-out;
-        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
-    }
-
-    /* Anchor Tag Styles */
-    .topic-link {
-        text-decoration: none;
-        /* Remove underline from links */
-        color: black;
-        /* Text color */
-        font-size: 1rem;
-        /* Font size */
-    }
-
-    /* Hover Effects for Topic Cards */
-    .topic-card:hover {
-        transform: translateY(-5px);
-        /* Lift effect */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        /* Increase shadow */
-        /* Increase shadow */
-        cursor: pointer;
-        /* Pointer on hover */
-    }
-
-    @media (max-width: 768px) {
-        .facility-item {
-            padding: 20px;
-        }
-
-        .owl-carousel .owl-item img {
-            object-fit: cover;
-            height: 400px !important;
-        }
-
-        .h-100 {
-            height: 400px !important;
-        }
-
-        #margin-top {
-            margin-top: -14pc !important;
-        }
-    }
-</style>
-
-
-
-
-<style>
-    .button-74 {
-        background-color: #fbeee0;
-        border: 2px solid #422800;
-        border-radius: 30px;
-        box-shadow: #422800 4px 4px 0 0;
-        color: #422800;
-        cursor: pointer;
-        display: inline-block;
-        font-weight: 600;
-        font-size: 18px;
-        padding: 0 18px;
-        line-height: 50px;
-        text-align: center;
-        text-decoration: none;
-        user-select: none;
-        -webkit-user-select: none;
-        touch-action: manipulation;
-    }
-
-    .button-74:hover {
-        background-color: #fff;
-    }
-
-    .button-74:active {
-        box-shadow: #422800 2px 2px 0 0;
-        transform: translate(2px, 2px);
-    }
-
-    @media (min-width: 768px) {
-        .button-74 {
-            min-width: 120px;
-            padding: 0 25px;
+        .col-lg-3,
+        .col-sm-6 {
+            flex: 1 1 100%;
+            max-width: 100%;
         }
     }
 </style>
 
 
 <!-- Grades Start -->
-<div class="container py-5" id="margin-top" style="background-color:white;">
-    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+<div class="container py-5">
+    <div class="text-center mx-auto mb-5" style="max-width: 600px;">
         <h1 class="mb-3">Grades</h1>
-        <p>Our worksheets are designed to be educational and fun at the same time. The concepts of our English
-            worksheets address skills in a variety of ways, from coloring, writing, puzzles to mazes to letter and
-            picture matching. We cover all the important math skills including arithmetic, geometry, money, time and
-            measurement. Our science worksheets address environmental concepts including animal names and their sound,
-            body parts. Download and print any worksheet for free.</p>
+        <p>Our worksheets are designed to be educational and fun at the same time. Concepts cover a range of skills
+            including math, English, and science.</p>
     </div>
-    <div class="row g-4">
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
-            <div class="facility-item">
-                <div class="facility-icon bg-primary">
-                    <span class="bg-primary"></span>
-                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
-                        style="width: 60px; height: auto;">
-                    <span class="bg-primary"></span>
+    <div class="row g-4 justify-content-center">
+        <!-- Grade Card -->
+        <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('through_grades', ['grade_id' => 10]) }}">
+                <div class="grade-card" style="background-color: #f25141;">
+                    <img src="{{asset('build/img/pre-k.png')}}" alt="Pre-K" class="img-fluid card-image">
+                    <h3 class="card-title">Pre-K</h3>
+                    <p class="card-description">Pre-K worksheets help young children develop basic skills through
+                        fun,interactive activities.</p>
                 </div>
-                <a href="{{ route('through_grades', ['grade_id' => 10]) }}">
-                    <div class="facility-text bg-primary">
-                        <h3 class="text-primary mb-3">Grade Pre-K</h3>
-                    </div>
-                </a>
-            </div>
+            </a>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
-            <div class="facility-item">
-                <div class="facility-icon bg-success">
-                    <span class="bg-success"></span>
-                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
-                        style="width: 60px; height: auto;">
-                    <span class="bg-success"></span>
-                </div>
-                <a href="{{ route('through_grades', ['grade_id' => 11]) }}">
-                    <div class="facility-text bg-success">
-                        <h3 class="text-success mb-3">Grade-K</h3>
 
-                    </div>
-                </a>
-            </div>
-        </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
-            <div class="facility-item">
-                <div class="facility-icon bg-warning">
-                    <span class="bg-warning"></span>
-                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
-                        style="width: 60px; height: auto;">
-                    <span class="bg-warning"></span>
+        <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('through_grades', ['grade_id' => 11]) }}">
+                <div class="grade-card" style="background-color: #ffc107;">
+                    <img src="{{asset('build/img/kindergarten.png')}}" alt="Kindergarten" class="img-fluid card-image">
+                    <h3 class="card-title">Kindergarten</h3>
+                    <p class="card-description">Kindergarten Worksheets help children develop foundation skill in
+                        mathreading and creativity</p>
                 </div>
-                <a href="{{ route('through_grades', ['grade_id' => 12]) }}">
-                    <div class="facility-text bg-warning">
-                        <h3 class="text-warning mb-3">Grade 1</h3>
-                    </div>
-                </a>
-            </div>
+            </a>
         </div>
-        <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
-            <div class="facility-item">
-                <div class="facility-icon bg-info">
-                    <span class="bg-info"></span>
-                    <img src="{{asset('build/img/online-learning.png')}}" alt="Math Icon" class="img-fluid"
-                        style="width: 60px; height: auto;">
-                    <span class="bg-info"></span>
+
+        <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('through_grades', ['grade_id' => 12]) }}">
+                <div class="grade-card" style="background-color: #9ACD32;">
+                    <img src="{{asset('build/img/grade1.png')}}" alt="Grade 1" class="img-fluid card-image">
+                    <h3 class="card-title">Grade 1</h3>
+                    <p class="card-description">Grade 1 worksheets help children practice foundational skills in
+                        math,reading and writing
+                    </p>
                 </div>
-                <a href="{{ route('through_grades', ['grade_id' => 13]) }}">
-                    <div class="facility-text bg-info">
-                        <h3 class="text-info mb-3">Grade 2</h3>
-                    </div>
-                </a>
-            </div>
+            </a>
+        </div>
+
+        <div class="col-lg-3 col-sm-6">
+            <a href="{{ route('through_grades', ['grade_id' => 13]) }}">
+                <div class="grade-card" style="background-color: #00BFFF;">
+                    <img src="{{asset('build/img/grade2.png')}}" alt="Grade 2" class="img-fluid card-image">
+                    <h3 class="card-title">Grade 2</h3>
+                    <p class="card-description">Grade 2 worksheets help reinforce basic skills in math,reading,writing
+                        and
+                        science</p>
+                </div>
+            </a>
         </div>
     </div>
     <div class="d-flex justify-content-center mt-4">
         <a href="{{ route('worksheets_grades') }}"><button class="button-74" role="button">More Grades</button></a>
     </div>
 </div>
-
 <!-- Grades End -->
 
 
