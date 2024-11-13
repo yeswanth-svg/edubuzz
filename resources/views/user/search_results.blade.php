@@ -2,6 +2,42 @@
 
 @section('title', 'Search Results')
 
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
+<style>
+      .page-banner {
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+    
+     @media only screen and (max-width: 979px) {
+
+        .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 639px) {
+        .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+    }
+</style>
+
 @section('content')
 <div class="container my-5">
     <h1 class="text-center">Search Results for "{{ $query }}"</h1>

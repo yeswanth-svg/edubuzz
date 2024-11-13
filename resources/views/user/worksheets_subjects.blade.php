@@ -1,8 +1,25 @@
 @extends('layouts.apps')
 @section('title', 'Worksheets By Subjects')
 
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
 @section('content')
 <style>
+
+.page-banner {
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
+
     /* Card styling */
     .subject-card {
         position: relative;
@@ -33,6 +50,23 @@
         font-size: 20px;
         font-weight: bold;
         margin: 0;
+    }
+    
+      @media only screen and (max-width: 979px) {
+   
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+    }
+
+    @media only screen and (max-width: 639px) {
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     }
 </style>
 

@@ -1,7 +1,25 @@
 @extends('layouts.apps')
 @section('title', 'Edubuzz - ' . $subject)
+
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 <style>
+
+.page-banner {
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     .heading-tabs {
         padding-top: 34px;
         padding-bottom: 34px;
@@ -84,10 +102,9 @@
     }
 
     .subject-button {
-        color: black;
+        color: white;
         border: none;
         border-bottom: 3px solid transparent;
-        border-radius: 10px 10px 0 0;
         padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.3s, border-bottom 0.3s;
@@ -100,24 +117,30 @@
 
     .subject-button.active {
         border-bottom: none;
+        color: white !important;
     }
 
+
     .subject-button.grade-pre-k {
-        background-color: #FF69B4;
-        border-bottom-color: #FF69B4;
+        color: #f25141;
+        background-color: #f25141;
+        border-bottom-color: #f25141;
     }
 
     .subject-button.grade-k {
-        background-color: #00BFFF;
-        border-bottom-color: #00BFFF;
-    }
-
-    .subject-button.grade-1 {
+        color: #9ACD32;
         background-color: #9ACD32;
         border-bottom-color: #9ACD32;
     }
 
+    .subject-button.grade-1 {
+        color: #00BFFF;
+        background-color: #00BFFF;
+        border-bottom-color: #00BFFF;
+    }
+
     .subject-button.grade-2 {
+        color:#fb7d17;
         background-color: #fb7d17;
         border-bottom-color: #fb7d17;
     }
@@ -177,6 +200,12 @@
             gap: 5px;
             justify-content: center;
         }
+        
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     }
 
     @media (max-width: 576px) {
@@ -206,6 +235,12 @@
         .container-lg {
             padding-left: 15px;
             padding-right: 15px;
+        }
+        
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
         }
     }
 
@@ -259,7 +294,7 @@
                                                 <img src="{{ asset($topic->thumbnail) }}" alt="{{ $topic->name }}"
                                                     class="img-fluid rounded">
                                             </a>
-                                            <p class="">{{ $topic->name }}</p>
+                                            <p>{{ $topic->name }}</p>
                                         </div>
                                     </div>
                                 @endforeach
@@ -271,7 +306,7 @@
         </div>
 
         <div class="col-md-4 col-lg-3 xs-m-t-36">
-            <h2 class="text-center bg-title bg-orange">Our Videos</h2>
+            <h2 class="text-center bg-title bg-orange text-light">Our Videos</h2>
             <div class="row">
                 <!-- Sample YouTube Videos -->
                 <div class="col-12 mb-4">

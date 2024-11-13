@@ -1,9 +1,27 @@
 @extends('layouts.apps')
 @section('title', $topicName . ' Worksheets')
 
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 <link href="{{asset('build/lib/owlcarousel/assets/owl.carousel.min.css')}}" rel="stylesheet" />
 <style>
+
+ .page-banner {
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+
     .heading-tabs {
         padding-top: 34px;
         padding-bottom: 34px;
@@ -91,10 +109,10 @@
     /* Responsive adjustments */
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
-
-        .carousel-section .owl-nav .owl-next {
-            right: 0px !important;
-            /* Adjust as needed */
+  .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
         }
 
         .heading-tabs ul li {
@@ -111,15 +129,19 @@
             justify-content: center;
             /* Center items in the container */
         }
-    }
-
-    @media (max-width: 576px) {
-
-        .carousel-section .owl-nav .owl-next {
+          .carousel-section .owl-nav .owl-next {
             right: 0px !important;
             /* Adjust as needed */
         }
+    }
 
+    @media (max-width: 576px) {
+        
+         .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
         .heading-tabs ul li {
             padding: 8px 20px;
             /* Further reduced padding */
@@ -145,6 +167,11 @@
         .accordion-container {
             padding: 0 15px;
             /* Add padding to accordion container */
+        }
+        
+          .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
         }
     }
 
@@ -300,6 +327,10 @@
     .carousel-section .owl-nav .owl-next span {
         font-size: 24px;
     }
+    
+     .color-orange {
+        color: #fb7d17;
+    }
 </style>
 
 
@@ -340,7 +371,8 @@
                                             </h2>
                                             <div id="collapse{{ $loop->index }}"
                                                 class="accordion-collapse collapse {{ $isCurrentSubject ? 'show' : '' }}"
-                                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample">
+                                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample"
+                                                style="background-color:white;">
                                                 <div class="accordion-body">
                                                     <ul class="arrow-list">
                                                         @foreach ($topicGroup as $topic)
@@ -367,7 +399,7 @@
         <div class="col-md-6 col-sm-8">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="bg-title bg-red">{{ $topicName }}</h3> <!-- Displaying the topic name -->
+                    <h3 class="bg-title bg-red text-light">{{ $topicName }}</h3> <!-- Displaying the topic name -->
                 </div>
             </div>
 
@@ -398,12 +430,33 @@
 
 
         <div class="col-md-3 col-lg-3 xs-m-t-36">
-            <h3 class="bg-title bg-orange">Our Videos</h3>
+            <h3 class="bg-title bg-orange text-light">Our Videos</h3>
             <div class="row">
                 <!-- YouTube Video Embeds -->
                 <div class="col-12 col-sm-6 col-md-12">
                     <div class="youtube-video-box m-t-14">
                         <iframe src="https://www.youtube.com/embed/-xQ5NSVsfj4" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen=""></iframe>
+                    </div>
+                    
+                     <div class="youtube-video-box m-t-14">
+                        <iframe src="https://www.youtube.com/embed/wG2U5E_M6jI" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen=""></iframe>
+                    </div>
+                    
+                     <div class="youtube-video-box m-t-14">
+                        <iframe src="https://www.youtube.com/embed/P23G4kQyWUc" title="YouTube video player"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowfullscreen=""></iframe>
+                    </div>
+                    
+                     <div class="youtube-video-box m-t-14">
+                        <iframe src="https://www.youtube.com/embed/o2Z7FkJFPkc" title="YouTube video player"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             allowfullscreen=""></iframe>
@@ -418,7 +471,7 @@
 <!-- Related Worksheets Carousel -->
 <section class="carousel-section">
     <div class="section-title">
-        <h3 class="color-orange text-center">Related Worksheets</h3>
+        <h3 class="color-orange text-center text-uppercase">Related Worksheets</h3>
     </div>
     <div class="container">
         <div class='related_worksheets owl-carousel owl-theme'>
@@ -453,7 +506,6 @@
             animateIn: "fadeIn",
             nav: true,
             dots: false,
-            autoplayHoverPause: true,
             autoplayTimeout: 2000, // Speed up autoplay (milliseconds)
             autoplaySpeed: 800,    // Slide transition speed (milliseconds)
             items: 8,

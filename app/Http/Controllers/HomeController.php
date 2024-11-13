@@ -10,7 +10,14 @@ class HomeController extends Controller
 
     public function index()
     {
-        return view('user.welcome');
+        // Fetch topics with their subjects
+        $topics = Topic::with('subject')->get();
+
+        // Deduplicate based on topic name
+        $uniqueTopics = $topics->unique('name')->values();
+
+        return view('user.welcome', compact('uniqueTopics'));
+
     }
     public function about()
     {

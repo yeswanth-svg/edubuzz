@@ -94,25 +94,34 @@ class RoutingController extends Controller
             abort(404, 'Grade not found.');
         }
 
-        // Get the worksheets for the current subtopic
-        $worksheets = $subtopic->worksheets;
+        // Paginate worksheets for the current subtopic (16 items per page)
+        $worksheets = $subtopic->worksheets()->paginate(16);
 
         // Get related worksheets from other subtopics under the same topic
         $relatedWorksheets = Worksheet::whereIn('id', function ($query) use ($topic) {
             $query->select('worksheets.id')
                 ->from('subtopics')
-                ->join('worksheets', 'subtopics.id', '=', 'worksheets.subtopic_id') // Adjust if there's no direct link
+                ->join('worksheets', 'subtopics.id', '=', 'worksheets.subtopic_id')
                 ->where('subtopics.topic_id', $topic->id);
         })->get();
 
         // Get all topics for all subjects
-        $topics = Topic::with('subject')->get(); // Retrieve all topics with their subjects
+        $topics = Topic::with('subject')->get();
 
         // Deduplicate based on topic name
         $uniqueTopics = $topics->unique('name')->values();
 
         // Pass all data to the view
-        return view('user.routing.through_grades_topic_subtopic', compact('subtopic_id', 'subtopicName', 'worksheets', 'relatedWorksheets', 'topic', 'subject', 'grade', 'uniqueTopics'));
+        return view('user.routing.through_grades_topic_subtopic', compact(
+            'subtopic_id',
+            'subtopicName',
+            'worksheets',
+            'relatedWorksheets',
+            'topic',
+            'subject',
+            'grade',
+            'uniqueTopics'
+        ));
     }
 
 
@@ -127,7 +136,7 @@ class RoutingController extends Controller
         $subject = $topic->subject; // This retrieves the related subject from the topic
         $currentGradeId = $subject->grade_id; // Get the current worksheet's subject's grade ID
 
-    
+
         // Fetch related worksheets based on the same topic across all grades
         $relatedWorksheets = Worksheet::whereHas('subtopic.topic', function ($query) use ($topic) {
             $query->where('topics.id', $topic->id); // Match the topic ID

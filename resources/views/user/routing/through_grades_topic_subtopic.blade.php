@@ -1,11 +1,30 @@
 @extends('layouts.apps')
 @section('title', $subtopicName)
+
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
 
 
 <style>
+
+
+  .page-banner {
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     .heading-tabs {
         padding-top: 34px;
         padding-bottom: 34px;
@@ -91,9 +110,10 @@
     /* Responsive adjustments */
     /* Mobile responsive adjustments */
     @media (max-width: 768px) {
-        .carousel-section .owl-nav .owl-next {
-            right: 0px !important;
-            /* Adjust as needed */
+         .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
         }
 
 
@@ -120,8 +140,11 @@
             margin: 0 auto;
             /* Center container */
         }
-
-
+        
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
+        }
     }
 
     @media (max-width: 576px) {
@@ -132,12 +155,11 @@
             /* Responsive font size */
         }
 
-
-        .carousel-section .owl-nav .owl-next {
-            right: 0px !important;
-            /* Adjust as needed */
+      .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
         }
-
 
         .img-box-2 p {
             font-size: 12px;
@@ -158,8 +180,11 @@
             padding: 0 15px;
             /* Add padding to accordion container */
         }
-
-
+        
+        .carousel-section .owl-nav .owl-next {
+            right: 0px !important;
+            /* Adjust as needed */
+        }
     }
 
     .bg-orange {
@@ -308,8 +333,93 @@
     .carousel-section .owl-nav .owl-next span {
         font-size: 24px;
     }
+    
+       .color-orange {
+        color: #fb7d17;
+    }
+    
+     .img-box-2 img {
+        margin-bottom: 12px;
+        width: 100%;
+        border: solid 1px #333333;
+        /* box-shadow: rgba(0, 0, 0, 0.25) 2px 2px 10px; */
+    }
+    .img-box-2 a {
+    color: #f25141;
+}
 </style>
 
+<style>
+    /* Center pagination container */
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+  list-style: none; /* Remove bullets */
+  padding-left: 0;
+}
+
+/* Style for each pagination link */
+.pagination .page-item .page-link {
+  color: #fb7d17;
+  padding: 8px 14px;
+  text-decoration: none;
+  font-size: 16px;
+  font-weight: bold;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  transition: background-color 0.3s, color 0.3s;
+}
+
+/* Active page style */
+.pagination .page-item.active .page-link {
+  background-color: #fb7d17;
+  color: #fff;
+  border: 1px solid #fb7d17;
+}
+
+/* Hover effect */
+.pagination .page-item .page-link:hover {
+  background-color: #ddd;
+  color: #007bff;
+}
+
+/* Style for previous/next arrows */
+.pagination .page-item .page-link.prev,
+.pagination .page-item .page-link.next {
+  font-size: 18px;
+  padding: 8px 12px;
+  color: #007bff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Hover effect for previous/next arrows */
+.pagination .page-item .page-link.prev:hover,
+.pagination .page-item .page-link.next:hover {
+  background-color: #ddd;
+  color: #007bff;
+}
+
+/* Remove border from disabled items */
+.pagination .page-item.disabled .page-link {
+  color: #ccc;
+  border-color: #ddd;
+}
+
+/* Responsive adjustments */
+@media (max-width: 600px) {
+  .pagination .page-item .page-link {
+    font-size: 14px;
+    padding: 6px 10px;
+  }
+}
+
+</style>
 
 <section class="heading-tabs">
     <div class="container-lg">
@@ -347,7 +457,8 @@
                                             </h2>
                                             <div id="collapse{{ $loop->index }}"
                                                 class="accordion-collapse collapse {{ $isCurrentSubject ? 'show' : '' }}"
-                                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample">
+                                                aria-labelledby="heading{{ $loop->index }}" data-bs-parent="#accordionExample"
+                                                style="background-color:white;">
                                                 <div class="accordion-body">
                                                     <ul class="arrow-list">
                                                         @foreach ($topicGroup as $topic)
@@ -374,7 +485,7 @@
         <div class="col-md-6 col-sm-8">
             <div class="row">
                 <div class="col-12">
-                    <h3 class="bg-title bg-red">{{$subtopicName}}</h3>
+                    <h3 class="bg-title bg-red text-light">{{$subtopicName}}</h3>
                 </div>
             </div>
             <div class="row m-t-14">
@@ -393,12 +504,21 @@
 
                         </div>
                     </div>
+                    
                 @endforeach
             </div>
+            <!-- Pagination Controls -->
+            <nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+        <!-- This will render the pagination links with Bootstrap styling -->
+        {{ $worksheets->onEachSide(1)->links('pagination::bootstrap-4') }}
+    </ul>
+</nav>
+
         </div>
 
         <div class="col-md-3 col-lg-3 xs-m-t-36">
-            <h3 class="bg-title bg-orange">Our Videos</h3>
+            <h3 class="bg-title bg-orange text-light">Our Videos</h3>
             <div class="row">
                 <div class="col-12 col-sm-6 col-md-12">
                     <div class="youtube-video-box m-t-14">
@@ -438,18 +558,24 @@
     </div>
     <section class="carousel-section">
         <div class="section-title">
-            <h3 class="color-orange text-center">Related Worksheets</h3>
+            <h3 class="color-orange text-center text-uppercase">Related Worksheets</h3>
         </div>
         <div class="container">
             <div class="related_worksheets owl-carousel owl-theme">
                 @foreach ($relatedWorksheets as $worksheet)
                     <div class="item text-center">
+                        <div class='img-box-2'>
                         <a href="{{ route('through_grades_topic_subtopic_worksheets', $worksheet->id) }}"
                             title="{{ $worksheet->name }}">
                             <img src="{{ asset($worksheet->thumbnail) }}" alt="{{ $worksheet->name }}" />
                         </a>
-                        <h5>{{ $worksheet->name }}</h5>
+                        
+                         <h3>
+                            <a href="" title="{{ $worksheet->name }}">{{ $worksheet->name }}</a>
+                        </h3>
+                       
                         <p>{{$grade->slug}}</p>
+                        </div>
                     </div>
                 @endforeach
             </div>
@@ -472,7 +598,6 @@
             animateIn: "fadeIn",
             nav: true,
             dots: false,
-            autoplayHoverPause: true,
             autoplayTimeout: 2000, // Speed up autoplay (milliseconds)
             autoplaySpeed: 800,    // Slide transition speed (milliseconds)
             items: 8,

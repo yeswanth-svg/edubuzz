@@ -1,8 +1,23 @@
 @extends('layouts.apps')
 @section('title', 'Worksheets By Grades')
 
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
 @section('content')
 <style>
+.page-banner {
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
     .ag-format-container {
         max-width: 1142px;
         margin: 0 auto;
@@ -126,6 +141,11 @@
         .ag-courses-item_link:hover .ag-courses-item_bg {
             transform: scale(6);
         }
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     }
 
     @media only screen and (max-width: 639px) {
@@ -146,10 +166,15 @@
         .ag-courses-item_link:hover .ag-courses-item_bg {
             transform: scale(4);
         }
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     }
 </style>
 
-<h1 class="text-center" style="color: #FF5733; font-family: 'Comic Sans MS', cursive;">Worksheets for Grades!</h1>
+<h1 class="text-center" style="color: #FF5733;">Worksheets for Grades!</h1>
 
 <div class="ag-format-container">
     <div class="ag-courses_box">
@@ -159,7 +184,7 @@
                     $colorClass = 'bg-color-' . ($index % 6);
                 @endphp
                 <div class="ag-courses_item">
-                    <a href="href=" {{ route('through_grades', $grade->id) }}" class="ag-courses-item_link">
+                    <a href=" {{ route('through_grades', $grade->id) }}" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg {{ $colorClass }}"></div>
 
                         <div class="ag-courses-item_title text-center">

@@ -1,7 +1,26 @@
 @extends('layouts.apps')
 @section('title', 'Edubuzz - ' . $grade_name)
+
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 <style>
+
+ .page-banner {
+            height: 300px;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
     .heading-tabs {
         padding-top: 34px;
         padding-bottom: 34px;
@@ -84,10 +103,9 @@
     }
 
     .subject-button {
-        color: black;
+        color: white;
         border: none;
         border-bottom: 3px solid transparent;
-        border-radius: 10px 10px 0 0;
         padding: 10px 20px;
         cursor: pointer;
         transition: background-color 0.3s, border-bottom 0.3s;
@@ -100,21 +118,25 @@
 
     .subject-button.active {
         border-bottom: none;
+        color: white !important;
     }
 
     .subject-button.english {
-        background-color: #FF69B4;
-        border-bottom-color: #FF69B4;
+        color: #f25141;
+        background-color: #f25141;
+        border-bottom-color: #f25141;
     }
 
     .subject-button.math {
-        background-color: #00BFFF;
-        border-bottom-color: #00BFFF;
+        color: #9ACD32;
+        background-color: #9ACD32;
+        border-bottom-color: #9ACD32;
     }
 
     .subject-button.science {
-        background-color: #9ACD32;
-        border-bottom-color: #9ACD32;
+        color: #00BFFF;
+        background-color: #00BFFF;
+        border-bottom-color: #00BFFF;
     }
 
     .subject-button:not(.active) {
@@ -131,6 +153,14 @@
 
     /* Responsive adjustments */
     @media (max-width: 768px) {
+        
+         .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        
         .heading-tabs ul li {
             padding: 10px 30px;
             font-size: 16px;
@@ -175,6 +205,14 @@
     }
 
     @media (max-width: 576px) {
+        
+         .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
+        
+        
         .heading-tabs ul li {
             padding: 8px 20px;
             font-size: 14px;
@@ -255,7 +293,7 @@
                                             <img src="{{ asset($topic->thumbnail) }}" alt="{{ $topic->name }}"
                                                 class="img-fluid rounded">
                                         </a>
-                                        <p class="">{{ $topic->name }}</p>
+                                        <p>{{ $topic->name }}</p>
                                     </div>
                                 </div>
                             @endforeach
@@ -275,7 +313,19 @@
                         allowfullscreen></iframe>
                 </div>
                 <div class="col-12 mb-4">
-                    <iframe src="https://www.youtube.com/embed/-xQ5NSVsfj4" title="Sample Video 1" frameborder="0"
+                    <iframe src="https://www.youtube.com/embed/wG2U5E_M6jI" title="Sample Video 1" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                
+                 <div class="col-12 mb-4">
+                    <iframe src="https://www.youtube.com/embed/P23G4kQyWUc" title="Sample Video 1" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                
+                 <div class="col-12 mb-4">
+                    <iframe src="https://www.youtube.com/embed/o2Z7FkJFPkc" title="Sample Video 1" frameborder="0"
                         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                         allowfullscreen></iframe>
                 </div>

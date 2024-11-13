@@ -1,11 +1,28 @@
 @extends('layouts.apps')
 @section('title', 'Worksheets By Topics')
 
+@section('caurosel')
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <section class="page-banner">
+        <img src="{{asset('build/img/page2-banner.jpg')}}" class="img-fluid">
+    </section>
+</div>
+<!-- Carousel End -->
+
+@endsection
+
 @section('content')
 
-<h1 class="text-center mb-4" style="color: #FF5733; font-family: 'Comic Sans MS', cursive;">Fun Learning Topics</h1>
+<h1 class="text-center mb-4" style="color: #FF5733;">Fun Learning Topics</h1>
 
 <style>
+
+ .page-banner {
+        height: 300px;
+        overflow: hidden;
+        margin-bottom: 10px;
+    }
     /* Main container styling */
     .worksheets-by-topic {
         padding: 20px;
@@ -34,7 +51,6 @@
         font-size: 26px;
         font-weight: bold;
         color: #4A90E2;
-        font-family: 'Comic Sans MS', cursive;
         margin-bottom: 20px;
     }
 
@@ -54,7 +70,6 @@
         text-align: center;
         transition: background-color 0.3s ease, transform 0.2s ease;
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        font-family: 'Comic Sans MS', cursive;
     }
 
     .topic-card:hover {
@@ -87,6 +102,12 @@
         .topic-card {
             min-width: 120px;
         }
+        
+          .page-banner {
+            height: 128px !important;
+            overflow: hidden;
+            margin-bottom: 10px;
+        }
     }
 </style>
 
@@ -103,7 +124,7 @@
             <div class="topic-options">
                 @foreach ($topicGroup as $topic)
                     <div class="topic-card">
-                        <a href="" class="topic-link">
+                        <a href="{{route('through_worksheets_by_topics', $topic->id)}}" class="topic-link">
                             🎈 {{ $topic->name }}
                         </a>
                     </div>
