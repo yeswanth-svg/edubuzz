@@ -48,8 +48,6 @@ Route::middleware('auth')->group(function () {
 Route::controller(AdminAuthController::class)->group(function () {
     Route::get('/admin/', 'showLoginForm')->name('admin.login');
     Route::post('/admin/', 'authenticate');
-    Route::get('/admin/signup', 'showSignupForm')->name('admin.signup');
-    Route::post('/admin/signup', 'store');
     Route::post('/admin/logout', 'logout')->name('admin.logout');
     Route::get('/admin/password/reset', 'showResetForm')->name('admin.password.reset');
     Route::put('/admin/password/reset', 'reset')->name('admin.password.reset');

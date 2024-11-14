@@ -40,25 +40,7 @@ class AdminAuthController extends Controller
         ]);
     }
 
-    public function showSignupForm()
-    {
-        return view('admin.auth.signup');
-    }
 
-    public function store(Request $request)
-    {
-        $data = $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:users,email',
-            'password' => 'required|string|min:6|confirmed',
-        ]);
-
-        $data['password'] = Hash::make($data['password']);
-
-        User::create($data);
-
-        return redirect()->route('admin.login')->with('success', 'Account created. Please log in.');
-    }
 
     public function logout(Request $request)
     {

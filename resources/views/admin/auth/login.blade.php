@@ -45,21 +45,14 @@
             <button type="submit"
                 class="w-full bg-blue-600 hover:bg-blue-700 text-white font-semibold p-3 rounded-lg transition duration-200">Login</button>
 
-            <div class="flex justify-between mt-6">
-                <a href="{{ route('admin.password.reset') }}"
-                    class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center space-x-1">
-                    <span>Forgot Password?</span>
-                </a>
-                <a href="{{ route('admin.signup') }}"
-                    class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-center space-x-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4" fill="none" viewBox="0 0 24 24"
-                        stroke="currentColor">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4" />
-                    </svg>
-                    <span>Sign up</span>
-                </a>
-            </div>
-        </form>
+
+            <a href="{{ route('admin.password.reset') }}"
+                class="text-blue-600 hover:text-blue-800 text-sm font-medium flex items-right space-x-1 mt-5 text-right">
+                <span>Forgot Password?</span>
+
+
+    </div>
+    </form>
     </div>
 
 </body>
