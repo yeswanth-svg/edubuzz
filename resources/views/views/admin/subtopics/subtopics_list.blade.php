@@ -25,6 +25,7 @@
                     <th class="border border-black-300">Subtopic Name</th>
                     <th class="border border-black-300">Thumbnail</th>
                     <th class="border border-black-300">Actions</th>
+                    <th class="border border-black-300">Subtopic Worksheets</th>
                 </tr>
             </thead>
             <tbody class="text-center">
@@ -52,13 +53,12 @@
                                     <i class="fas fa-trash" style="font-size:20px"></i>
                                 </button>
                             </form>
+                        </td>
+                        <td class="border border-black-300">
                             <a href="{{ route('admin.worksheets.index', $subtopic->id) }}"
                                 class="bg-blue-300 text-dark px-4 py-2 rounded hover:bg-blue-500">
-                                View / Add Worksheets
+                            Subtopic Worksheets
                             </a>
-
-
-
                         </td>
 
                     </tr>

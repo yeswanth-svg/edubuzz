@@ -38,6 +38,11 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <style type="text/css">
+    
+          #img-fd
+            {
+                width:150px !important;
+            }
         #search-form {
             position: relative;
             top: 0;
@@ -45,36 +50,37 @@
             /* Adjust this value based on your design needs */
         }
 
-        @media (min-width: 1025px) {
-            #navbarCollapse {
-                position: relative;
-                top: 0px;
-                left: 60%;
-                transform: translate(-50%);
-            }
+         @media (min-width: 1025px) {
+        #navbarCollapse {
+            position: relative;
+            top: 0px;
+            left: 50%;
+            transform: translate(-50%);
         }
+}
 
-        /* Reset or alternative styles for mobile view (below 1025px) */
-        @media (max-width: 1024px) {
-            #navbarCollapse {
-                position: static;
-                left: auto;
-                transform: none;
+/* Reset or alternative styles for mobile view (below 1025px) */
+            @media (max-width: 1024px) {
+                #navbarCollapse {
+                    position: static;
+                    left: auto;
+                    transform: none;
+                }
             }
-        }
 
         @media (max-width: 1200px) {
             #search-form {
                 left: 15%;
                 /* Adjust for medium screens */
             }
-
-            #navbarCollapse {
-                position: relative;
-                top: 0px;
-                left: 53%;
-                transform: translate(-50%);
-            }
+            
+             #navbarCollapse
+             {
+                 position: relative;
+                 top: 0px;
+                 left: 53%;
+                 transform: translate(-50%);
+             }
         }
 
         @media (max-width: 992px) {
@@ -89,7 +95,7 @@
                 left: 5%;
                 /* Centered or close to the edge for tablets */
             }
-
+           
         }
 
         @media (max-width: 576px) {
@@ -170,7 +176,9 @@
         .display-5,
         .display-6,
         p,
-        a {
+        a ,
+        button
+        {
             font-family: "Fredoka", sans-serif;
             font-weight: 500;
 
@@ -180,12 +188,6 @@
 
             font-family: "Fredoka", sans-serif !important;
         }
-
-        .btn-primary2 {
-            color: white;
-            background-color: #fe5d37;
-            border-color: #fe5d37;
-        }
     </style>
 
 </head>
@@ -194,13 +196,13 @@
 
 
     <!-- Navbar Start -->
+    <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5"
         style="border-bottom: 3.5px solid #988fac; margin-bottom: 0;">
-        <div class="container" style="padding:0px;">
-            <!-- Logo -->
-            <a href="{{ url('/') }}" class="navbar-brand">
-                <img class="img-fluid me-2" src="{{ asset('build/img/edubuzz_logo.png') }}" alt="Logo"
-                    style="width: 150px;">
+        <div class="container">
+            <!-- Logo with a slight margin to the right -->
+            <a href="{{ url('/') }}" class="navbar-brand ms-5">
+                <img class="img-fluid me-2" id="img-fd" src="{{ asset('build/img/edubuzz_logo.png') }}" alt="Logo">
             </a>
 
             <!-- Toggle button for mobile view -->
@@ -209,41 +211,41 @@
             </button>
 
             <!-- Navbar content -->
-            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-                <!-- Search form with spacing on the right side -->
-                <form action="{{ route('search') }}" method="GET" class="d-flex" id="search-form">
-                    <input class="form-control me-2" type="search" name="query" placeholder="Search..."
-                        aria-label="Search" style="border-radius: 30px; padding: 10px 20px;">
-                    <button class="btn btn-primary2" type="submit" style="border-radius: 30px; padding: 10px 20px;">
-                        <i class="fa fa-search"></i>
-                    </button>
-                </form>
-                <!-- Centered navigation links -->
-                <div class="navbar-nav mx-auto">
-                    <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
-                        style="font-size:larger">Home</a>
-                    <a href="https://www.youtube.com/user/edubuzzkids"
-                        class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
-                        style="font-size:larger">Videos</a>
-                    <a href="https://play.google.com/store/apps/dev?id=5183235697422098559" class="nav-item nav-link"
-                        style="font-size:larger">Apps</a>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <div class="d-flex flex-column flex-lg-row align-items-lg-center w-100">
+                    <!-- Search form with spacing on the right side -->
+                    <form action="{{ route('search') }}" method="GET" class="d-flex me-auto ms-lg-auto mb-2 mb-lg-0"
+                        id="search-form">
+                        <input class="form-control me-2" type="search" name="query" placeholder="Search..."
+                            aria-label="Search" style="border-radius: 30px; padding: 10px 20px;">
+                        <button class="btn btn-primary" type="submit" style="border-radius: 30px; padding: 10px 20px;">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </form>
+
+                    <!-- Centered navigation links -->
+                    <div class="navbar-nav mx-auto">
+                        <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
+                            style="font-size:larger">Home</a>
+                        <a href="https://www.youtube.com/user/edubuzzkids"
+                            class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
+                            style="font-size:larger">Videos</a>
+                        <a href="https://play.google.com/store/apps/dev?id=5183235697422098559"
+                            class="nav-item nav-link" style="font-size:larger">Apps</a>
+                    </div>
                 </div>
             </div>
         </div>
     </nav>
-
-
-
     <!-- Navbar End -->
-
 
 
 
     @yield('caurosel')
     <!-- Navbar End -->
-
-    @yield('content')
-
+    <div class="container-xxl bg-white p-0">
+        @yield('content')
+    </div>
 
 
     <!-- Footer Start -->
@@ -257,9 +259,7 @@
                             <ul>
                                 <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-pre-k']) }}">PRE -K</a>
                                 </li>
-                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">
-                                        <K></K>
-                                    </a></li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">K</a></li>
                                 <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-1']) }}">GRADE 1</a>
                                 </li>
                                 <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-2']) }}">GRADE 2</a>

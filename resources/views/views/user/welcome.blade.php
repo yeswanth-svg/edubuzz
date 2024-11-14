@@ -86,7 +86,7 @@
 
         background-color: #f84778 !important;
         border-color: #f84778 !important;
-        box-shadow: 0px 6px 0px #cf1e4f;
+            box-shadow: 0px 6px 0px #cf1e4f;
     }
 
     p {
@@ -359,11 +359,10 @@
             margin-top: -14pc !important;
         }
     }
-
+    
     .video-column {
-        margin-bottom: 20px;
-        /* Adjust as needed */
-    }
+    margin-bottom: 20px; /* Adjust as needed */
+}
 </style>
 
 <!-- style for grades cards -->
@@ -394,14 +393,14 @@
         transform: translateY(-5px);
     }
 
-    .card-image {
-        width: 131px;
-        height: auto;
-        margin-bottom: 15px;
-        border-radius: 75px;
-        outline: 2px dashed white;
-        padding: 5px;
-    }
+   .card-image {
+    width: 131px;
+    height: auto;
+    margin-bottom: 15px;
+    border-radius: 75px;
+    outline: 2px dashed white;
+    padding: 5px;
+}
 
     .card-title {
         font-size: 1.25rem;
@@ -419,6 +418,8 @@
 
 
 <!-- Grades Start -->
+<section class="worksheets-by-topic"
+    style="padding: 30px; text-align: center; background-color:#fcf9f4;">
 <div class="container py-5">
     <div class="text-center mx-auto mb-5" style="max-width: 600px;">
         <h1 class="mb-3">Grades</h1>
@@ -428,8 +429,7 @@
         <!-- Grade Card -->
         <div class="col-lg-3 col-sm-6">
             <a href="{{ route('through_grades', ['grade_slug' => 'grade-pre-k']) }}">
-                <div class="grade-card"
-                    style="background-color: #f25141; box-shadow: #c33628 0px 10px 8px; border-radius: 25px;">
+                <div class="grade-card" style="background-color: #f25141; box-shadow: #c33628 0px 10px 8px; border-radius: 25px;">
                     <img src="{{asset('build/img/pre-k.png')}}" alt="Pre-K" class="img-fluid card-image">
                     <h3 class="card-title">Pre-K</h3>
                     <p class="card-description">Pre-K worksheets help young children develop basic skills through
@@ -439,9 +439,8 @@
         </div>
 
         <div class="col-lg-3 col-sm-6">
-            <a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">
-                <div class="grade-card"
-                    style="background-color: #ffc107; box-shadow:#d19f09 0px 10px 8px; border-radius: 25px;">
+             <a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">
+                <div class="grade-card" style="background-color: #ffc107; box-shadow:#d19f09 0px 10px 8px; border-radius: 25px;">
                     <img src="{{asset('build/img/kindergarten.png')}}" alt="Kindergarten" class="img-fluid card-image">
                     <h3 class="card-title">Kindergarten</h3>
                     <p class="card-description">Kindergarten Worksheets help children develop foundation skill in the
@@ -451,9 +450,8 @@
         </div>
 
         <div class="col-lg-3 col-sm-6">
-            <a href="{{ route('through_grades', ['grade_slug' => 'grade-1']) }}">
-                <div class="grade-card"
-                    style="background-color: #9ACD32; box-shadow: #79a71c 0px 10px 8px; border-radius: 25px;">
+             <a href="{{ route('through_grades', ['grade_slug' => 'grade-1']) }}">
+                <div class="grade-card" style="background-color: #9ACD32; box-shadow: #79a71c 0px 10px 8px; border-radius: 25px;">
                     <img src="{{asset('build/img/grade1.png')}}" alt="Grade 1" class="img-fluid card-image">
                     <h3 class="card-title">Grade 1</h3>
                     <p class="card-description">Grade 1 worksheets help children practice foundational skills in
@@ -465,8 +463,7 @@
 
         <div class="col-lg-3 col-sm-6">
             <a href="{{ route('through_grades', ['grade_slug' => 'grade-2']) }}">
-                <div class="grade-card"
-                    style="background-color: #00BFFF; box-shadow: #1087af 0px 10px 8px; border-radius: 25px;">
+                <div class="grade-card" style="background-color: #00BFFF; box-shadow: #1087af 0px 10px 8px; border-radius: 25px;">
                     <img src="{{asset('build/img/grade2.png')}}" alt="Grade 2" class="img-fluid card-image">
                     <h3 class="card-title">Grade 2</h3>
                     <p class="card-description">Grade 2 worksheets help reinforce basic skills in math,reading,writing
@@ -481,6 +478,7 @@
                 Grades</button></a>
     </div>
 </div>
+</section>
 <!-- Grades End -->
 
 
@@ -543,8 +541,7 @@
 <style>
     /* Custom margin for each video column */
     .video-column {
-        margin-bottom: 20px;
-        /* Adjust this value as needed */
+        margin-bottom: 20px; /* Adjust this value as needed */
     }
 </style>
 
@@ -556,61 +553,55 @@
     <!-- Video Grid -->
     <div class="row g-5 justify-content-center" style="--bs-gutter-x: 6rem !important;">
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.3s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/zkqxpCXcQJI" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.3s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/udxSNNEEeZw" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.5s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/1rWAKJCH4ic" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.1s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/AOhLhy3rIx0" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.3s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/o2Z7FkJFPkc" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
-
+        
         <div class="col-lg-4 col-md-6 wow fadeInUp video-column" data-wow-delay="0.5s">
-            <div class="bg-light d-flex justify-content-center align-items-center"
-                style="width: 400px; height: 300px; overflow: hidden;">
+            <div class="bg-light d-flex justify-content-center align-items-center" style="width: 400px; height: 300px; overflow: hidden;">
                 <iframe class="img-fluid" src="https://www.youtube.com/embed/LH76IS_Qoi4" title="YouTube video player"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowfullscreen style="width: 100%; height: 100%;">
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen
+                    style="width: 100%; height: 100%;">
                 </iframe>
             </div>
         </div>
@@ -618,8 +609,7 @@
 
     <!-- "More Videos" Button -->
     <div class="d-flex justify-content-center mt-4">
-        <a href="https://www.youtube.com/user/edubuzzkids" class="btn btn-primary px-4 py-2" target="_blank"
-            rel="noopener noreferrer">
+        <a href="https://www.youtube.com/user/edubuzzkids" class="btn btn-primary px-4 py-2" target="_blank" rel="noopener noreferrer">
             More Videos
         </a>
     </div>

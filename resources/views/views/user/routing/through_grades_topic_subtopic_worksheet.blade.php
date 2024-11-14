@@ -320,7 +320,7 @@
                                         </div>
 
                                         
-                                        <div id="pdf-viewer" style="text-align: center;">
+                                        <div id="pdf-viewer" style="text-align: center; border: solid 1px #333333;">
                                             <canvas id="pdf-canvas"></canvas>
                                         </div>  
                                     </div>

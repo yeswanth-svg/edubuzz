@@ -54,7 +54,7 @@
                 class="w-full text-gray-400 font-semibold text-sm bg-white border file:cursor-pointer cursor-pointer file:border-0 file:py-3 file:px-4 file:mr-4 file:bg-gray-100 file:hover:bg-gray-200 file:text-gray-500 rounded"
                 accept="image/png, image/jpeg, image/jpg, image/webp, image/gif" />
             <p class="text-xs text-gray-600 mt-2"><span class="text-red-500 font-bold">*</span> PNG, JPG, WEBP, and GIF
-                are allowed.</p>
+                are allowed & Max Image Size 2MB</p>
         </div>
 
         <div class="mb-4">
@@ -62,8 +62,8 @@
             <input type="file" name="worksheets[]" id="worksheets"
                 class="mt-1 block w-full border border-gray-300 rounded-lg p-2" accept="application/pdf" multiple
                 required>
-        </div>
-
+                 <p class="text-xs text-gray-600 mt-2"><span class="text-red-500 font-bold">*</span>Max upload Files Upto 50 & Max File Size 2MB per file</p>
+                 
         <button type="submit" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">Add
             Worksheet</button>
     </form>

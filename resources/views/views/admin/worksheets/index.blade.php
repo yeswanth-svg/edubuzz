@@ -20,11 +20,6 @@
         <!-- Add New Worksheets Button -->
         <a href="{{ route('admin.worksheets.create', $subtopic->id) }}"
             class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded">Add New Worksheet</a>
-
-        <!-- Bulk Delete Button -->
-        <button id="bulkDeleteBtn" class="bg-red-500 hover:bg-red-600 text-white px-4 py-2 rounded"
-            onclick="confirmBulkDelete()">Bulk Delete Selected</button>
-
     </header>
 
 
@@ -33,9 +28,6 @@
         <table id="gradesTable" class="display w-full border-collapse border border-black-300">
             <thead class="bg-black-100">
                 <tr>
-                    <th class="border border-black-300">
-                        <input type="checkbox" id="selectAll" />
-                    </th>
                     <th class="border border-black-300">ID</th>
                     <th class="border border-black-300">Subtopic Name</th>
                     <th class="border border-black-300">Worksheet Name</th>
@@ -47,10 +39,6 @@
             <tbody class="text-center">
                 @foreach ($worksheets as $worksheet)
                     <tr>
-                        <td class="border border-black-300">
-                            <input type="checkbox" name="selectedWorksheets[]" value="{{ $worksheet->id }}"
-                                class="select-item" />
-                        </td>
                         <td class="border border-black-300">{{ $worksheet->id }}</td>
                         <td class="border border-black-300">{{ $worksheet->subtopic->name }}</td>
                         <td class="border border-black-300">{{ $worksheet->name }}</td>
@@ -85,10 +73,7 @@
                 @endforeach
             </tbody>
         </table>
-
     </div>
-
-
 
 </div>
 
@@ -97,39 +82,19 @@
 <script>
     $(document).ready(function () {
         $('#gradesTable').DataTable({
+            // Optional: Configure DataTables here
             responsive: true,
             language: {
-                searchPlaceholder: "Search Worksheet",
+                searchPlaceholder: "Search Worksheets",
                 search: "",
-            }
-        });
-
-        // Select/Deselect all checkboxes
-        $('#selectAll').click(function () {
-            $('.select-item').prop('checked', $(this).prop('checked'));
-        });
-
-        $('.select-item').click(function () {
-            if (!$(this).prop('checked')) {
-                $('#selectAll').prop('checked', false);
             }
         });
     });
 
-    // Confirm Bulk Delete
-    function confirmBulkDelete() {
-        const selectedIds = $('.select-item:checked').map(function () {
-            return $(this).val();
-        }).get();
-
-        if (selectedIds.length === 0) {
-            Swal.fire('No worksheets selected', 'Please select at least one worksheet to delete.', 'info');
-            return;
-        }
-
+    function confirmDelete(worksheetId) {
         Swal.fire({
             title: 'Are you sure?',
-            text: `Do you want to delete ${selectedIds.length} selected worksheet(s)?`,
+            text: "Do you want to delete this worksheet?",
             icon: 'warning',
             showCancelButton: true,
             confirmButtonColor: '#3085d6',
@@ -138,24 +103,9 @@
             cancelButtonText: 'Cancel'
         }).then((result) => {
             if (result.isConfirmed) {
-                $.ajax({
-                    url: "{{ route('admin.worksheets.bulkDelete') }}",
-                    method: "POST",
-                    data: {
-                        _token: "{{ csrf_token() }}",
-                        ids: selectedIds
-                    },
-                    success: function (response) {
-                        Swal.fire('Deleted!', response.message, 'success')
-                            .then(() => location.reload());
-                    },
-                    error: function (xhr) {
-                        Swal.fire('Error', 'There was a problem deleting the worksheets.', 'error');
-                    }
-                });
+                document.getElementById('delete-form-' + worksheetId).submit();
             }
         });
     }
 </script>
-
 @endsection

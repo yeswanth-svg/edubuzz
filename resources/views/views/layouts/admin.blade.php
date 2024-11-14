@@ -5,6 +5,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@yield('title', 'Admin Dashboard')</title>
+    
+      <!-- Favicon -->
+    <link href="{{asset('favicon.gif')}}" rel="icon" />
+    
     <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
@@ -15,7 +19,6 @@
     <script src="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.js"></script>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" />
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-
 
 
 </head>
@@ -44,6 +47,8 @@
                     class="block p-2 text-gray-300 hover:bg-gray-700 rounded mt-4">
                     <i class="fas fa-list w-6 h-6"></i>
                     Subtopics</a>
+
+
                 <form id="logout-form" action="{{ route('admin.logout') }}" method="POST" class="inline">
                     @csrf
                     <a href="#" onclick="event.preventDefault(); document.getElementById('logout-form').submit();"
@@ -52,7 +57,6 @@
                         Logout
                     </a>
                 </form>
-
             </nav>
         </aside>
 
