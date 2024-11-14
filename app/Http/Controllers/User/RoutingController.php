@@ -13,19 +13,20 @@ use App\Models\Worksheet;
 class RoutingController extends Controller
 {
     //
-    public function through_grades($grade_id)
+    public function through_grades($grade_slug)
     {
-        $subjects = Subject::with('topics')->where('grade_id', $grade_id)->get();
-        $grade = Grade::find($grade_id);
+        $grade = Grade::where('slug', $grade_slug)->first();
 
         if (!$grade) {
             return abort(404, 'Grade not found');
         }
 
+        $subjects = Subject::with('topics')->where('grade_id', $grade->id)->get();
+
         return view('user.routing.through_grades', [
             'subjects' => $subjects,
             'grade_name' => $grade->name,
-            'grade_id' => $grade_id,
+            'grade_id' => $grade->id,
         ]);
     }
 

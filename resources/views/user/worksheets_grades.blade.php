@@ -13,11 +13,12 @@
 @endsection
 @section('content')
 <style>
-.page-banner {
+    .page-banner {
         height: 300px;
         overflow: hidden;
         margin-bottom: 10px;
     }
+
     .ag-format-container {
         max-width: 1142px;
         margin: 0 auto;
@@ -141,7 +142,8 @@
         .ag-courses-item_link:hover .ag-courses-item_bg {
             transform: scale(6);
         }
-          .page-banner {
+
+        .page-banner {
             height: 128px !important;
             overflow: hidden;
             margin-bottom: 10px;
@@ -166,7 +168,8 @@
         .ag-courses-item_link:hover .ag-courses-item_bg {
             transform: scale(4);
         }
-          .page-banner {
+
+        .page-banner {
             height: 128px !important;
             overflow: hidden;
             margin-bottom: 10px;
@@ -184,13 +187,14 @@
                     $colorClass = 'bg-color-' . ($index % 6);
                 @endphp
                 <div class="ag-courses_item">
-                    <a href=" {{ route('through_grades', $grade->id) }}" class="ag-courses-item_link">
+                    <a href="{{ route('through_grades', $grade->slug) }}" class="ag-courses-item_link">
                         <div class="ag-courses-item_bg {{ $colorClass }}"></div>
 
                         <div class="ag-courses-item_title text-center">
                             {{ $grade->name }}
                         </div>
                     </a>
+
                 </div>
         @endforeach
     </div>

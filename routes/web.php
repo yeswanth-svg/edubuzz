@@ -24,7 +24,7 @@ Route::get('/search', [WorksheetController::class, 'search'])->name('search');
 
 
 //ROUTING ROUTES Through Grades
-Route::get('/worksheets/grade/{grade_id}', [RoutingController::class, 'through_grades'])->name('through_grades');
+Route::get('/worksheets/grade/{grade_slug}', [RoutingController::class, 'through_grades'])->name('through_grades');
 Route::get('/worksheets/grade/topic/{topic_id}', [RoutingController::class, 'through_grades_topic'])->name('through_grades_topic');
 Route::get('/worksheets/grade/topic/subtopics/{subtopic_id}', [RoutingController::class, 'through_grades_topic_subtopics'])->name('through_grades_topic_subtopics');
 Route::get('/worksheets/grade/topic/subtopics/worksheet/{worksheet_id}', [RoutingController::class, 'through_grades_topic_subtopic_worksheets'])->name('through_grades_topic_subtopic_worksheets');
@@ -51,6 +51,8 @@ Route::controller(AdminAuthController::class)->group(function () {
     Route::get('/admin/signup', 'showSignupForm')->name('admin.signup');
     Route::post('/admin/signup', 'store');
     Route::post('/admin/logout', 'logout')->name('admin.logout');
+    Route::get('/admin/password/reset', 'showResetForm')->name('admin.password.reset');
+    Route::put('/admin/password/reset', 'reset')->name('admin.password.reset');
 });
 
 // Admin Panel Routes

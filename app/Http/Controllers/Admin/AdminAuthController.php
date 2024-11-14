@@ -113,6 +113,35 @@ class AdminAuthController extends Controller
         ));
     }
 
+    public function showResetForm()
+    {
+        return view('admin.auth.reset');
+    }
+
+    public function reset(Request $request)
+    {
+        // Validate the request
+        $request->validate([
+            'email' => ['required', 'email', 'exists:users,email'],
+            'password' => ['required', 'string', 'min:8', 'confirmed'],
+        ]);
+
+        // Retrieve the user by email
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return back()->withErrors(['email' => 'No account found with this email address.']);
+        }
+
+        // Update the password
+        $user->update([
+            'password' => Hash::make($request->password),
+        ]);
+
+        // Return a success response
+        return back()->with('success', 'Password updated successfully');
+    }
+
 
 
 }

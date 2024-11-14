@@ -44,38 +44,37 @@
             left: 21%;
             /* Adjust this value based on your design needs */
         }
-        
-        @media (min-width: 1025px) {
-        #navbarCollapse {
-            position: relative;
-            top: 0px;
-            left: 60%;
-            transform: translate(-50%);
-        }
-}
 
-/* Reset or alternative styles for mobile view (below 1025px) */
-            @media (max-width: 1024px) {
-                #navbarCollapse {
-                    position: static;
-                    left: auto;
-                    transform: none;
-                }
+        @media (min-width: 1025px) {
+            #navbarCollapse {
+                position: relative;
+                top: 0px;
+                left: 60%;
+                transform: translate(-50%);
             }
+        }
+
+        /* Reset or alternative styles for mobile view (below 1025px) */
+        @media (max-width: 1024px) {
+            #navbarCollapse {
+                position: static;
+                left: auto;
+                transform: none;
+            }
+        }
 
         @media (max-width: 1200px) {
             #search-form {
                 left: 15%;
                 /* Adjust for medium screens */
             }
-            
-             #navbarCollapse
-             {
-                 position: relative;
-                 top: 0px;
-                 left: 53%;
-                 transform: translate(-50%);
-             }
+
+            #navbarCollapse {
+                position: relative;
+                top: 0px;
+                left: 53%;
+                transform: translate(-50%);
+            }
         }
 
         @media (max-width: 992px) {
@@ -90,7 +89,7 @@
                 left: 5%;
                 /* Centered or close to the edge for tablets */
             }
-           
+
         }
 
         @media (max-width: 576px) {
@@ -181,15 +180,12 @@
 
             font-family: "Fredoka", sans-serif !important;
         }
-        
+
         .btn-primary2 {
-    color: white;
-    background-color: #fe5d37;
-    border-color: #fe5d37;
-}
-
-
- 
+            color: white;
+            background-color: #fe5d37;
+            border-color: #fe5d37;
+        }
     </style>
 
 </head>
@@ -198,44 +194,46 @@
 
 
     <!-- Navbar Start -->
-    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5" style="border-bottom: 3.5px solid #988fac; margin-bottom: 0;">
-    <div class="container" style="padding:0px;">
-        <!-- Logo -->
-        <a href="{{ url('/') }}" class="navbar-brand">
-            <img class="img-fluid me-2" src="{{ asset('build/img/edubuzz_logo.png') }}" alt="Logo" style="width: 150px;">
-        </a>
+    <nav class="navbar navbar-expand-lg bg-white navbar-light sticky-top px-4 px-lg-5"
+        style="border-bottom: 3.5px solid #988fac; margin-bottom: 0;">
+        <div class="container" style="padding:0px;">
+            <!-- Logo -->
+            <a href="{{ url('/') }}" class="navbar-brand">
+                <img class="img-fluid me-2" src="{{ asset('build/img/edubuzz_logo.png') }}" alt="Logo"
+                    style="width: 150px;">
+            </a>
 
-        <!-- Toggle button for mobile view -->
-        <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-            <span class="navbar-toggler-icon"></span>
-        </button>
+            <!-- Toggle button for mobile view -->
+            <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
 
-        <!-- Navbar content -->
-        <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
-            <!-- Search form with spacing on the right side -->
-            <form action="{{ route('search') }}" method="GET" class="d-flex" id="search-form">
-                <input class="form-control me-2" type="search" name="query" placeholder="Search..."
-                    aria-label="Search" style="border-radius: 30px; padding: 10px 20px;">
-                <button class="btn btn-primary2" type="submit" style="border-radius: 30px; padding: 10px 20px;">
-                    <i class="fa fa-search"></i>
-                </button>
-            </form>
-            <!-- Centered navigation links -->
-            <div class="navbar-nav mx-auto">
-                <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
-                    style="font-size:larger">Home</a>
-                <a href="https://www.youtube.com/user/edubuzzkids"
-                    class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
-                    style="font-size:larger">Videos</a>
-                <a href="https://play.google.com/store/apps/dev?id=5183235697422098559" class="nav-item nav-link"
-                    style="font-size:larger">Apps</a>
+            <!-- Navbar content -->
+            <div class="collapse navbar-collapse justify-content-center" id="navbarCollapse">
+                <!-- Search form with spacing on the right side -->
+                <form action="{{ route('search') }}" method="GET" class="d-flex" id="search-form">
+                    <input class="form-control me-2" type="search" name="query" placeholder="Search..."
+                        aria-label="Search" style="border-radius: 30px; padding: 10px 20px;">
+                    <button class="btn btn-primary2" type="submit" style="border-radius: 30px; padding: 10px 20px;">
+                        <i class="fa fa-search"></i>
+                    </button>
+                </form>
+                <!-- Centered navigation links -->
+                <div class="navbar-nav mx-auto">
+                    <a href="{{ url('/') }}" class="nav-item nav-link {{ request()->is('/') ? 'active' : '' }}"
+                        style="font-size:larger">Home</a>
+                    <a href="https://www.youtube.com/user/edubuzzkids"
+                        class="nav-item nav-link {{ request()->is('videos') ? 'active' : '' }}"
+                        style="font-size:larger">Videos</a>
+                    <a href="https://play.google.com/store/apps/dev?id=5183235697422098559" class="nav-item nav-link"
+                        style="font-size:larger">Apps</a>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
+    </nav>
 
 
-   
+
     <!-- Navbar End -->
 
 
@@ -257,10 +255,15 @@
                         <div class="wrap-1">
                             <h3>GRADES</h3>
                             <ul>
-                                <li><a href="{{ route('through_grades', ['grade_id' => 10]) }}">PRE -K</li>
-                                <li><a href="{{ route('through_grades', ['grade_id' => 11]) }}">K</a></li>
-                                <li><a href="{{ route('through_grades', ['grade_id' => 12]) }}">GRADE 1</a></li>
-                                <li><a href="{{ route('through_grades', ['grade_id' => 13]) }}">GRADE 2</a></li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-pre-k']) }}">PRE -K</a>
+                                </li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">
+                                        <K></K>
+                                    </a></li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-1']) }}">GRADE 1</a>
+                                </li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-2']) }}">GRADE 2</a>
+                                </li>
                             </ul>
                         </div>
                     </div>
@@ -271,7 +274,6 @@
                                 <li><a href="{{route('through_worksheets_by_subjects', 'math')}}">MATH</a></li>
                                 <li> <a href="{{route('through_worksheets_by_subjects', 'english')}}">ENGLISH</a></li>
                                 <li> <a href="{{route('through_worksheets_by_subjects', 'science')}}">SCIENCE</a></li>
-                                <li><a href="{{ route('through_grades_topic', ['topic_id' => 63]) }}">COLORING</a></li>
                             </ul>
                         </div>
                     </div>

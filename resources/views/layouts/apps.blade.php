@@ -249,7 +249,73 @@
     </div>
 
 
+    <!-- Footer Start -->
+    <footer class="mt-4" style="border-top:6px solid #7e55b3; margin-bottom: 0;">
+        <div class="container-lg">
+            <div class="footer-container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>GRADES</h3>
+                            <ul>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-pre-k']) }}">PRE -K</a>
+                                </li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-k']) }}">K</a></li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-1']) }}">GRADE 1</a>
+                                </li>
+                                <li><a href="{{ route('through_grades', ['grade_slug' => 'grade-2']) }}">GRADE 2</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>PRINTABLES</h3>
+                            <ul>
+                                <li><a href="{{route('through_worksheets_by_subjects', 'math')}}">MATH</a></li>
+                                <li> <a href="{{route('through_worksheets_by_subjects', 'english')}}">ENGLISH</a></li>
+                                <li> <a href="{{route('through_worksheets_by_subjects', 'science')}}">SCIENCE</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>SUPPORT</h3>
+                            <ul>
+                                <!--<li><a href="#">FAQ's</a></li>-->
+                                <li><a href="{{ url('/policy') }}">PRIVACY POLICY</a></li>
+                                <!--<li><a href="#">COPPA PRIVACY POLICY</a></li>
+                <li><a href="#">TERMS OF SERVICE</a></li>-->
+                            </ul>
+                        </div>
+                    </div>
 
+                    <div class="col-sm-6 col-md-3">
+                        <div class="wrap-1">
+                            <h3>ABOUT US</h3>
+                            <ul>
+                                <li><a href="https://www.littlebrainworks.com/" target="_blank">COMPANY</a></li>
+                                <!--<li><a href="#">CAREERS</a></li>
+                <li><a href="#">PRESS</a></li>-->
+                                <li><a href="https://www.littlebrainworks.com/" target="_blank">CONTACT US</a></li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="col-md-12 mt-2">
+                        <div class="footer-copyright text-center">
+                            <p class="text-light">Copyright &copy; <span id="year"></span> <a
+                                    href="https://www.cloudeyetech.com/">EDUBUZZKIDS</a>.All rights reserved</p>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </footer>
+    <!-- Footer End -->
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
     <script>
