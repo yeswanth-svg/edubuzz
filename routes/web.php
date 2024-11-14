@@ -51,6 +51,7 @@ Route::controller(AdminAuthController::class)->group(function () {
     Route::post('/admin/logout', 'logout')->name('admin.logout');
     Route::get('/admin/password/reset', 'showResetForm')->name('admin.password.reset');
     Route::put('/admin/password/reset', 'reset')->name('admin.password.reset');
+    Route::get('/admin/profile', 'profileUpdate')->name('admin.profile');
 });
 
 // Admin Panel Routes

@@ -124,6 +124,11 @@ class AdminAuthController extends Controller
         return back()->with('success', 'Password updated successfully');
     }
 
+    public function profileUpdate()
+    {
+        return view('admin.auth.update_password');
+    }
+
 
 
 }
